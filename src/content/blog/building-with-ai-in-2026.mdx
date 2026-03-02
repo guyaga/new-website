@@ -1,0 +1,83 @@
+export const frontmatter = {
+  title: "Building Products with AI: A 2026 Playbook",
+  titleHe: "בניית מוצרים עם AI: מדריך מעשי ל-2026",
+  slug: "building-with-ai-in-2026",
+  date: "2026-01-28",
+  excerpt: "Practical lessons from building AI-powered products like AdGPT — from ideation to launch, and everything that goes wrong in between.",
+  excerptHe: "לקחים מעשיים מבניית מוצרים מבוססי AI כמו AdGPT — מרעיון להשקה, וכל מה שמשתבש באמצע.",
+  tags: ["AI", "Product", "Strategy"],
+  coverImage: "/blog/building-ai-cover.jpg",
+  lang: "both"
+}
+
+# Building Products with AI: A 2026 Playbook
+
+After building [AdGPT](https://adgpt.com) and consulting for brands on AI strategy, I've learned that the gap between "AI can do this" and "this AI product actually works" is larger than most people think.
+
+## Rule 1: AI is the Engine, Not the Car
+
+The biggest mistake I see: building a product around an AI capability instead of a user problem. Nobody wakes up thinking "I need a large language model." They think "I need better ads, faster."
+
+AdGPT works because it solves a specific problem: creating high-performing ad creatives at scale. The AI is invisible — users see results, not technology.
+
+## Rule 2: Design for Failure
+
+AI models fail. They hallucinate, they misunderstand context, they produce garbage. Your product needs to handle this gracefully.
+
+Every AI output in AdGPT goes through:
+- **Guardrails** — brand safety checks, format validation
+- **Human review** — easy editing interface, not just approve/reject
+- **Feedback loops** — user edits train better outputs over time
+
+## Rule 3: Start with the Smallest Useful Thing
+
+Don't build a general-purpose AI platform. Build a tool that does one thing exceptionally well. You can expand later.
+
+Our first version of AdGPT only generated Facebook ad copy. That's it. No images, no video, no multi-platform support. But it generated *really good* Facebook ad copy. That focus was everything.
+
+## Rule 4: Your Data Moat Matters More Than Your Model
+
+Models are commoditized. GPT-4, Claude, Gemini — they're all capable. What makes your product defensible is the data you collect:
+- User behavior patterns
+- Industry-specific fine-tuning data
+- Performance feedback from real campaigns
+
+## Rule 5: Price for Value, Not Cost
+
+AI compute costs are dropping fast. If you price based on API costs, you're in a race to the bottom. Price based on the value you create.
+
+An ad creative that converts 2x better is worth thousands. The API call that generated it cost cents.
+
+## What I'd Do Differently
+
+1. **Ship earlier** — our "MVP" was over-engineered. A Google Sheet with an API integration would have validated the concept in a week.
+2. **Talk to users more** — we spent 3 months building features nobody asked for because we thought we knew better.
+3. **Focus on distribution** — the product doesn't matter if nobody knows it exists.
+
+---
+
+## בניית מוצרים עם AI: מדריך מעשי ל-2026
+
+אחרי בניית [AdGPT](https://adgpt.com) וייעוץ למותגים באסטרטגיית AI, למדתי שהפער בין "AI יכול לעשות את זה" ל"המוצר הזה באמת עובד" גדול ממה שרוב האנשים חושבים.
+
+### כלל 1: AI הוא המנוע, לא הרכב
+
+הטעות הגדולה: לבנות מוצר סביב יכולת AI במקום סביב בעיית משתמש. אף אחד לא קם בבוקר וחושב "אני צריך מודל שפה גדול". הם חושבים "אני צריך פרסומות טובות יותר, מהר יותר."
+
+### כלל 2: לתכנן לכשלון
+
+מודלים של AI נכשלים. הם הוזים, הם לא מבינים הקשר. המוצר שלכם צריך לטפל בזה בחינניות.
+
+### כלל 3: להתחיל מהדבר השימושי הכי קטן
+
+הגרסה הראשונה של AdGPT יצרה רק קופי לפרסומות בפייסבוק. זהו. בלי תמונות, בלי וידאו. אבל היא יצרה קופי *ממש טוב*. המיקוד הזה היה הכל.
+
+### כלל 4: המשאב האמיתי הוא הדאטה
+
+מודלים הפכו לסחורה. מה שהופך את המוצר שלכם לבר-הגנה הוא הדאטה שאתם אוספים.
+
+### מה הייתי עושה אחרת
+
+1. **לשלוח מוקדם יותר** — ה-MVP שלנו היה מהונדס יתר על המידה
+2. **לדבר עם משתמשים יותר** — בילינו 3 חודשים על פיצ'רים שאף אחד לא ביקש
+3. **להתמקד בהפצה** — המוצר לא משנה אם אף אחד לא יודע שהוא קיים
