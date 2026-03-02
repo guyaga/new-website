@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /d/Website && npx vite build 2>&1)",
+      "Bash(cd /d/Website && node -e \"\nconst { GoogleGenAI } = require\\('@google/genai'\\);\nconst fs = require\\('fs'\\);\n\nconst ai = new GoogleGenAI\\({ apiKey: process.env.GEMINI_API_KEY }\\);\n\nasync function generate\\(\\) {\n  const refImage = fs.readFileSync\\('me.jpg'\\);\n  const base64 = refImage.toString\\('base64'\\);\n\n  console.log\\('Generating hero image...'\\);\n  const response = await ai.models.generateContent\\({\n    model: 'gemini-3-pro-image-preview',\n    contents: [\n      {\n        text: 'Create a cinematic, wide-angle hero portrait of this person for a website hero section. He should be positioned on the right side of the frame, looking slightly off-camera with a confident, thoughtful expression. The environment should be a modern, minimal workspace or architectural space with clean geometric lines. The overall color palette must be: deep black \\(#111111\\) tones dominating, warm beige/paper \\(#E8E4DD\\) ambient light, and subtle signal-red \\(#E63B2E\\) accent — perhaps a thin red neon line, a red element in the background, or red-tinted rim lighting on one side. The mood is editorial, cinematic, and premium. Shallow depth of field. The left side of the image should be darker/emptier to allow text overlay. Dramatic but minimal lighting. No text.'\n      },\n      {\n        inlineData: {\n          mimeType: 'image/jpeg',\n          data: base64\n        }\n      }\n    ],\n    config: {\n      responseModalities: ['TEXT', 'IMAGE'],\n      imageConfig: { aspectRatio: '16:9', imageSize: '4K' },\n    },\n  }\\);\n\n  for \\(const part of response.candidates[0].content.parts\\) {\n    if \\(part.text && !part.thought\\) {\n      console.log\\('Model text:', part.text\\);\n    }\n    if \\(part.inlineData && !part.thought\\) {\n      const buffer = Buffer.from\\(part.inlineData.data, 'base64'\\);\n      fs.writeFileSync\\('public/hero-bg.jpg', buffer\\);\n      console.log\\('Saved hero-bg.jpg \\(' + buffer.length + ' bytes\\)'\\);\n    }\n  }\n}\n\ngenerate\\(\\).catch\\(e => console.error\\(e\\)\\);\n\" 2>&1)",
+      "WebFetch(domain:web.archive.org)",
+      "WebSearch",
+      "WebFetch(domain:bestguy.ai)",
+      "Bash(head:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:lvwewkpytqwlxxcefqdw.supabase.co)",
+      "Bash(echo === ANON KEY ===:*)",
+      "Bash(gh auth:*)"
+    ]
+  }
+}
