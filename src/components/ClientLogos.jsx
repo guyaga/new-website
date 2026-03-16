@@ -1,10 +1,15 @@
+import { useLanguage, createT } from '../i18n';
+
 export default function ClientLogos() {
+  const { lang } = useLanguage();
+  const t = createT(lang);
+
   const clients = [
     { name: 'IBI', url: 'https://www.ibi.co.il' },
     { name: 'Technion', url: 'https://www.technion.ac.il' },
     { name: 'Strauss', url: 'https://www.strauss-group.com' },
     { name: 'Maccabi', url: 'https://www.maccabi4u.co.il' },
-    { name: 'HapPpy', url: '#' },
+    { name: 'HapPpy', url: 'https://happpy.co.il/' },
     { name: 'AIG', url: 'https://www.aig.co.il' },
     { name: 'AdGPT', url: 'https://adgpt.com' },
   ];
@@ -12,7 +17,7 @@ export default function ClientLogos() {
   return (
     <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto">
       <p className="font-mono text-xs text-black/40 uppercase tracking-widest text-center mb-10">
-        Trusted by leading brands
+        {t('clients.label')}
       </p>
       <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
         {clients.map((client) => (

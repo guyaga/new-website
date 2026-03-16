@@ -6,6 +6,11 @@ export default function ScrambleText({ text, className }) {
     const [displayText, setDisplayText] = useState(text);
     const isScrambling = useRef(false);
 
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- sync displayText when text prop changes from language toggle
+        if (!isScrambling.current) setDisplayText(text);
+    }, [text]);
+
     const startScramble = () => {
         if (isScrambling.current) return;
         isScrambling.current = true;

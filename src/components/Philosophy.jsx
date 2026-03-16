@@ -1,11 +1,14 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage, createT } from '../i18n';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Philosophy() {
     const containerRef = useRef(null);
+    const { lang } = useLanguage();
+    const t = createT(lang);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -37,6 +40,10 @@ export default function Philosophy() {
         return () => ctx.revert();
     }, []);
 
+    const questionWords = t('philosophy.question');
+    const heading1Words = t('philosophy.heading1');
+    const heading2Words = t('philosophy.heading2');
+
     return (
         <section id="about" ref={containerRef} className="relative py-32 md:py-64 bg-black overflow-hidden flex items-center min-h-[80vh]">
             {/* Parallax Background */}
@@ -48,38 +55,38 @@ export default function Philosophy() {
 
             <div className="relative z-20 w-full max-w-5xl mx-auto px-6 text-white">
                 <div className="mb-12">
-                    {["Who", "is", "Guy?"].map((word, i) => (
-                        <span key={i} className="word-reveal inline-block font-sans font-medium text-lg md:text-2xl text-paper/70 mr-2">
+                    {questionWords.map((word, i) => (
+                        <span key={i} className="word-reveal inline-block font-sans font-medium text-lg md:text-2xl text-paper/70 me-2">
                             {word}
                         </span>
                     ))}
                 </div>
 
                 <div className="mt-8 leading-[1.1]">
-                    {["Making", "AI:"].map((word, i) => (
-                        <span key={i} className="word-reveal inline-block font-sans font-bold text-4xl md:text-7xl uppercase mr-4 tracking-tight">
+                    {heading1Words.map((word, i) => (
+                        <span key={i} className="word-reveal inline-block font-sans font-bold text-4xl md:text-7xl uppercase me-4 tracking-tight">
                             {word}
                         </span>
                     ))}
                     <br className="hidden md:block" />
                     <div className="mt-4">
-                        {["Practical, ", "Accessible, "].map((word, i) => (
-                            <span key={i} className="word-reveal inline-block font-serif italic text-6xl md:text-9xl tracking-tighter mr-6">
+                        {heading2Words.map((word, i) => (
+                            <span key={i} className="word-reveal inline-block font-serif italic text-6xl md:text-9xl tracking-tighter me-6">
                                 {word}
                             </span>
                         ))}
                         <span className="word-reveal inline-block font-serif italic text-6xl md:text-9xl text-signal-red tracking-tighter mix-blend-screen">
-                            Real.
+                            {t('philosophy.heading3')}
                         </span>
                     </div>
                 </div>
 
                 {/* Bio Paragraphs */}
                 <div className="mt-16 md:mt-24 max-w-2xl font-sans text-lg md:text-xl text-paper/80 leading-relaxed word-reveal">
-                    With over 10 years of experience shaping digital products from Tel Aviv, Guy Aga lectures at academic institutions, collaborates with designers, architects, and agencies, and runs AI Academy — an educational platform empowering people to build independently with AI tools.
+                    {t('philosophy.bio1')}
                 </div>
                 <div className="mt-6 max-w-2xl font-sans text-lg md:text-xl text-paper/60 leading-relaxed word-reveal">
-                    His approach is hands-on and research-driven: bridging the gap between cutting-edge AI capabilities and real-world application, so that creative professionals and businesses can harness technology without losing their human edge.
+                    {t('philosophy.bio2')}
                 </div>
             </div>
         </section>

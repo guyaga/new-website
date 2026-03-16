@@ -1,37 +1,28 @@
-// Blog post loading utilities using Vite glob import
-const modules = import.meta.glob('../content/blog/*.mdx', { eager: true });
+import { supabase } from '../lib/supabase';
 
-function parsePosts() {
-  const posts = Object.entries(modules).map(([filepath, mod]) => {
-    const frontmatter = mod.frontmatter || {};
-    const slug = frontmatter.slug || filepath.split('/').pop().replace('.mdx', '');
+export async function getAllPosts() {
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('id, title, slug, date, excerpt, tags, cover_image, body, status')
+    .eq('status', 'published')
+    .order('date', { ascending: false });
 
-    return {
-      slug,
-      title: frontmatter.title || slug,
-      titleHe: frontmatter.titleHe || '',
-      date: frontmatter.date || '2026-01-01',
-      excerpt: frontmatter.excerpt || '',
-      excerptHe: frontmatter.excerptHe || '',
-      tags: frontmatter.tags || [],
-      coverImage: frontmatter.coverImage || null,
-      lang: frontmatter.lang || 'en',
-      Component: mod.default,
-    };
-  });
-
-  return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-}
-
-let cachedPosts = null;
-
-export function getAllPosts() {
-  if (!cachedPosts) {
-    cachedPosts = parsePosts();
+  if (error) {
+    console.error('Error fetching posts:', error);
+    return [];
   }
-  return cachedPosts;
+
+  return data || [];
 }
 
-export function getPostBySlug(slug) {
-  return getAllPosts().find((post) => post.slug === slug) || null;
+export async function getPostBySlug(slug) {
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .single();
+
+  if (error) return null;
+  return data;
 }

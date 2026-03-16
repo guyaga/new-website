@@ -1,15 +1,26 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import BlogCard from '../components/BlogCard';
 import { getAllPosts } from '../utils/blog';
+import { useLanguage, createT } from '../i18n';
 
 export default function BlogList() {
-  const [lang, setLang] = useState('en');
   const containerRef = useRef(null);
-  const posts = getAllPosts();
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { lang } = useLanguage();
+  const t = createT(lang);
 
   useEffect(() => {
+    getAllPosts().then((data) => {
+      setPosts(data);
+      setLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (loading || posts.length === 0) return;
     const ctx = gsap.context(() => {
       gsap.from('.blog-list-card', {
         y: 40,
@@ -20,61 +31,54 @@ export default function BlogList() {
       });
     }, containerRef);
     return () => ctx.revert();
-  }, []);
-
-  const localizedPosts = posts.map((post) => ({
-    ...post,
-    title: lang === 'he' && post.titleHe ? post.titleHe : post.title,
-    excerpt: lang === 'he' && post.excerptHe ? post.excerptHe : post.excerpt,
-  }));
+  }, [loading, posts.length]);
 
   return (
     <>
       <Helmet>
-        <title>Blog — Guy Aga</title>
+        <title>{t('blog.pageTitle')}</title>
         <meta name="description" content="Thoughts on AI strategy, digital products, education, and the future of creative work." />
       </Helmet>
 
       <main
         ref={containerRef}
         className="pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen"
-        dir={lang === 'he' ? 'rtl' : 'ltr'}
       >
         <div className="flex items-end justify-between mb-12">
           <div>
             <p className="font-mono text-xs text-black/40 uppercase tracking-widest mb-3">
-              {lang === 'he' ? 'מהבלוג' : 'The Blog'}
+              {t('blog.label')}
             </p>
             <h1 className="font-sans font-bold text-4xl md:text-5xl tracking-tight uppercase">
-              {lang === 'he' ? 'מחשבות' : 'Thoughts'}
+              {t('blog.heading')}
             </h1>
           </div>
+        </div>
 
-          <div className="flex items-center gap-1 font-mono text-sm border border-black/10 rounded-full overflow-hidden">
-            <button
-              onClick={() => setLang('en')}
-              className={`px-4 py-1.5 transition-colors ${lang === 'en' ? 'bg-black text-white' : 'text-black/60 hover:text-black'}`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => setLang('he')}
-              className={`px-4 py-1.5 transition-colors ${lang === 'he' ? 'bg-black text-white' : 'text-black/60 hover:text-black'}`}
-            >
-              עב
-            </button>
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-off-white rounded-2xl border border-black/10 overflow-hidden animate-pulse">
+                <div className="aspect-[16/9] bg-paper" />
+                <div className="p-6 space-y-3">
+                  <div className="h-3 bg-paper rounded w-1/3" />
+                  <div className="h-5 bg-paper rounded w-2/3" />
+                  <div className="h-3 bg-paper rounded w-full" />
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <div key={post.slug} className="blog-list-card">
+                <BlogCard post={post} />
+              </div>
+            ))}
+          </div>
+        )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {localizedPosts.map((post) => (
-            <div key={post.slug} className="blog-list-card">
-              <BlogCard post={post} />
-            </div>
-          ))}
-        </div>
-
-        {posts.length === 0 && (
+        {!loading && posts.length === 0 && (
           <p className="font-mono text-sm text-black/40 text-center py-20">No posts yet. Check back soon.</p>
         )}
       </main>

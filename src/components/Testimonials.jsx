@@ -2,69 +2,32 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Quote } from 'lucide-react';
+import { useLanguage, createT } from '../i18n';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const testimonials = [
-    {
-        id: 1,
-        name: "Etgar Shafir",
-        title: 'Author, "Marketing in Digital World"',
-        quote: "Always researches thoroughly and extracts the most interesting insights",
-    },
-    {
-        id: 2,
-        name: "Yishai Katz Sheinfeld",
-        title: "VP Marketing, Ono Academic College",
-        quote: "Stays updated, finds effective solutions, recognized industry leader",
-    },
-    {
-        id: 3,
-        name: "Shai Cohen",
-        title: "Ptztz Media Owner",
-        quote: "Demonstrates professionalism, breadth of expertise, and leadership drive",
-    },
-    {
-        id: 4,
-        name: "Maya Shoshni",
-        title: "Creative AI Specialist",
-        quote: "Makes learning practical; helps maximize capabilities and translate to financial gain",
-    },
-    {
-        id: 5,
-        name: "Talia Maor",
-        title: "AI Learner, Marketing Manager",
-        quote: "Closest to AI capabilities in Israel; has amazing, creative, intelligent mind",
-    },
-    {
-        id: 6,
-        name: "Rafi Tal",
-        title: "CEO, HapPpy",
-        quote: "Always innovates, finds efficient uses, shares knowledge practically and pleasantly",
-    },
-    {
-        id: 7,
-        name: "Adam Oberlander",
-        title: "Photographer/Digital",
-        quote: "Full of knowledge, explains thoroughly, teaches with passion and creativity",
-    },
-    {
-        id: 8,
-        name: "Noy",
-        title: "Student",
-        quote: "Amazing knowledge, genius teacher, explains patiently with smile and enthusiasm",
-    },
+const testimonialData = [
+    { id: 1, name: "Etgar Shafir", quoteKey: 'testimonials.1.quote', titleKey: 'testimonials.1.title' },
+    { id: 2, name: "Yishai Katz Sheinfeld", quoteKey: 'testimonials.2.quote', titleKey: 'testimonials.2.title' },
+    { id: 3, name: "Shai Cohen", quoteKey: 'testimonials.3.quote', titleKey: 'testimonials.3.title' },
+    { id: 4, name: "Maya Shoshni", quoteKey: 'testimonials.4.quote', titleKey: 'testimonials.4.title' },
+    { id: 5, name: "Talia Maor", quoteKey: 'testimonials.5.quote', titleKey: 'testimonials.5.title' },
+    { id: 6, name: "Rafi Tal", quoteKey: 'testimonials.6.quote', titleKey: 'testimonials.6.title' },
+    { id: 7, name: "Adam Oberlander", quoteKey: 'testimonials.7.quote', titleKey: 'testimonials.7.title' },
+    { id: 8, name: "Noy", quoteKey: 'testimonials.8.quote', titleKey: 'testimonials.8.title' },
 ];
 
 export default function Testimonials() {
     const containerRef = useRef(null);
     const [active, setActive] = useState(0);
     const intervalRef = useRef(null);
+    const { lang } = useLanguage();
+    const t = createT(lang);
 
     const startAutoRotate = useCallback(() => {
         clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
-            setActive(prev => (prev + 1) % testimonials.length);
+            setActive(prev => (prev + 1) % testimonialData.length);
         }, 5000);
     }, []);
 
@@ -121,8 +84,8 @@ export default function Testimonials() {
         return () => ctx.revert();
     }, []);
 
-    const featured = testimonials[active];
-    const miniCards = testimonials.filter((_, i) => i !== active).slice(0, 3);
+    const featured = testimonialData[active];
+    const miniCards = testimonialData.filter((_, i) => i !== active).slice(0, 3);
 
     return (
         <section ref={containerRef} className="relative py-24 md:py-40 bg-paper overflow-hidden">
@@ -130,10 +93,10 @@ export default function Testimonials() {
                 {/* Section Header */}
                 <div className="testimonial-header mb-16">
                     <span className="font-mono text-xs tracking-[0.3em] uppercase text-black/40 block mb-4">
-                        What People Say
+                        {t('testimonials.label')}
                     </span>
                     <h2 className="font-sans font-bold text-3xl md:text-5xl tracking-tight uppercase">
-                        Testimonials
+                        {t('testimonials.heading')}
                     </h2>
                 </div>
 
@@ -145,21 +108,21 @@ export default function Testimonials() {
                             key={featured.id}
                             className="font-serif italic text-2xl md:text-4xl lg:text-5xl leading-snug tracking-tight text-black/90 max-w-3xl transition-opacity duration-500"
                         >
-                            "{featured.quote}"
+                            "{t(featured.quoteKey)}"
                         </blockquote>
                         <div className="mt-8 flex flex-col">
                             <span className="font-sans font-bold text-lg text-black">
                                 {featured.name}
                             </span>
                             <span className="font-mono text-sm text-black/50 mt-1">
-                                {featured.title}
+                                {t(featured.titleKey)}
                             </span>
                         </div>
                     </div>
 
                     {/* Navigation Dots */}
                     <div className="flex gap-2 mt-8">
-                        {testimonials.map((_, i) => (
+                        {testimonialData.map((_, i) => (
                             <button
                                 key={i}
                                 onClick={() => goTo(i)}
@@ -176,22 +139,22 @@ export default function Testimonials() {
 
                 {/* Mini Cards */}
                 <div className="testimonial-grid grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {miniCards.map((t) => (
+                    {miniCards.map((item) => (
                         <div
-                            key={t.id}
+                            key={item.id}
                             className="testimonial-card bg-white border border-black/10 p-6 rounded-sm hover:border-signal-red/30 transition-colors cursor-pointer"
-                            onClick={() => goTo(testimonials.findIndex(x => x.id === t.id))}
+                            onClick={() => goTo(testimonialData.findIndex(x => x.id === item.id))}
                         >
                             <Quote className="text-black/10 w-6 h-6 mb-3" />
                             <p className="font-sans text-sm text-black/70 leading-relaxed mb-4">
-                                "{t.quote}"
+                                "{t(item.quoteKey)}"
                             </p>
                             <div className="border-t border-black/10 pt-3">
                                 <span className="font-sans font-bold text-sm text-black block">
-                                    {t.name}
+                                    {item.name}
                                 </span>
                                 <span className="font-mono text-xs text-black/40">
-                                    {t.title}
+                                    {t(item.titleKey)}
                                 </span>
                             </div>
                         </div>
