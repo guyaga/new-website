@@ -1,68 +1,116 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { getPostBySlug } from '../utils/blog';
+import { useLanguage, createT } from '../i18n';
+import { Copy, Check } from 'lucide-react';
+
+function CodeBlock({ children, className }) {
+  const [copied, setCopied] = useState(false);
+  const language = className?.replace('language-', '') || '';
+  const code = String(children).replace(/\n$/, '');
+
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }, [code]);
+
+  return (
+    <div className="relative group rounded-xl overflow-hidden my-6">
+      {language && (
+        <div className="flex items-center justify-between px-4 py-2 bg-[#0a0a0a] border-b border-white/5">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-white/30">{language}</span>
+        </div>
+      )}
+      <pre className="!bg-[#111111] !p-5 !m-0 overflow-x-auto">
+        <code className="!bg-transparent !p-0 !text-[#b0b0b0] text-sm font-mono leading-relaxed whitespace-pre">
+          {code}
+        </code>
+      </pre>
+      <button
+        onClick={handleCopy}
+        className="absolute top-2 right-2 p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all opacity-0 group-hover:opacity-100"
+        title="Copy to clipboard"
+      >
+        {copied ? (
+          <Check size={14} className="text-green-400" />
+        ) : (
+          <Copy size={14} className="text-white/40" />
+        )}
+      </button>
+    </div>
+  );
+}
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const post = getPostBySlug(slug);
-  const [lang, setLang] = useState('en');
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { lang } = useLanguage();
+  const t = createT(lang);
+
+  useEffect(() => {
+    getPostBySlug(slug).then((data) => {
+      setPost(data);
+      setLoading(false);
+    });
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <main className="pt-32 pb-24 px-6 min-h-screen">
+        <div className="max-w-prose mx-auto animate-pulse space-y-6">
+          <div className="h-4 bg-paper rounded w-24" />
+          <div className="aspect-[16/9] bg-paper rounded-2xl" />
+          <div className="h-8 bg-paper rounded w-2/3" />
+          <div className="space-y-3">
+            <div className="h-4 bg-paper rounded" />
+            <div className="h-4 bg-paper rounded w-5/6" />
+            <div className="h-4 bg-paper rounded w-4/6" />
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   if (!post) {
     return (
       <main className="pt-32 pb-24 px-6 max-w-3xl mx-auto min-h-screen text-center">
         <h1 className="font-sans font-bold text-3xl mb-4">Post Not Found</h1>
         <Link to="/blog" className="font-mono text-sm text-signal-red hover:underline">
-          &larr; Back to blog
+          &larr; {t('blog.backToBlog')}
         </Link>
       </main>
     );
   }
-
-  const Component = post.Component;
-  const title = lang === 'he' && post.titleHe ? post.titleHe : post.title;
 
   return (
     <>
       <Helmet>
         <title>{post.title} — Guy Aga</title>
         <meta name="description" content={post.excerpt} />
-        {post.coverImage && <meta property="og:image" content={post.coverImage} />}
+        {post.cover_image && <meta property="og:image" content={post.cover_image} />}
       </Helmet>
 
       <main className="pt-32 pb-24 px-6 min-h-screen">
-        <article className="max-w-prose mx-auto" dir={lang === 'he' ? 'rtl' : 'ltr'}>
+        <article className="max-w-prose mx-auto">
           <div className="mb-8">
             <Link
               to="/blog"
-              className="font-mono text-sm text-black/40 hover:text-signal-red transition-colors"
+              className="font-mono text-sm text-black/40 hover:text-signal-red transition-colors inline-flex items-center gap-1"
             >
-              &larr; {lang === 'he' ? 'חזרה לבלוג' : 'Back to blog'}
+              <span className="rtl:rotate-180">&larr;</span> {t('blog.backToBlog')}
             </Link>
           </div>
 
-          {post.titleHe && (
-            <div className="flex items-center gap-1 font-mono text-sm border border-black/10 rounded-full overflow-hidden w-fit mb-8">
-              <button
-                onClick={() => setLang('en')}
-                className={`px-4 py-1.5 transition-colors ${lang === 'en' ? 'bg-black text-white' : 'text-black/60 hover:text-black'}`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang('he')}
-                className={`px-4 py-1.5 transition-colors ${lang === 'he' ? 'bg-black text-white' : 'text-black/60 hover:text-black'}`}
-              >
-                עב
-              </button>
-            </div>
-          )}
-
-          {post.coverImage && (
+          {post.cover_image && (
             <div className="aspect-[16/9] rounded-2xl overflow-hidden mb-8">
               <img
-                src={post.coverImage}
-                alt={title}
+                src={post.cover_image}
+                alt={post.title}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -77,14 +125,14 @@ export default function BlogPost() {
                   day: 'numeric',
                 })}
               </time>
-              {post.tags.map((tag) => (
+              {post.tags?.map((tag) => (
                 <span key={tag} className="font-mono text-[10px] uppercase px-2 py-0.5 bg-paper rounded-full text-black/50">
                   {tag}
                 </span>
               ))}
             </div>
             <h1 className="font-sans font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
-              {title}
+              {post.title}
             </h1>
           </header>
 
@@ -98,8 +146,27 @@ export default function BlogPost() {
             prose-blockquote:border-signal-red prose-blockquote:font-serif prose-blockquote:italic
             prose-li:font-sans prose-li:text-black/80
             prose-hr:border-black/10
+            prose-pre:bg-transparent prose-pre:p-0 prose-pre:m-0
           ">
-            <Component />
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                pre({ children }) {
+                  // Extract code element props from the pre > code structure
+                  const codeEl = children?.props;
+                  if (codeEl) {
+                    return (
+                      <CodeBlock className={codeEl.className}>
+                        {codeEl.children}
+                      </CodeBlock>
+                    );
+                  }
+                  return <pre>{children}</pre>;
+                },
+              }}
+            >
+              {post.body}
+            </ReactMarkdown>
           </div>
         </article>
       </main>
