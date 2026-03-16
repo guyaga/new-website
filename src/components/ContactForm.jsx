@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { useLanguage, createT } from '../i18n';
+import { supabase } from '../lib/supabase';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const { lang } = useLanguage();
+  const t = createT(lang);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -13,19 +17,11 @@ export default function ContactForm() {
     setStatus('sending');
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_KEY',
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `New message from ${formData.name} via guyaga.com`,
-        }),
-      });
+      const { error } = await supabase
+        .from('contact_leads')
+        .insert({ name: formData.name, email: formData.email, message: formData.message });
 
-      if (res.ok) {
+      if (!error) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
@@ -39,20 +35,20 @@ export default function ContactForm() {
   return (
     <section id="contact-form" className="bg-black text-white py-24 md:py-32 px-6">
       <div className="max-w-3xl mx-auto">
-        <p className="font-mono text-xs text-paper/40 uppercase tracking-widest mb-3">Get in Touch</p>
+        <p className="font-mono text-xs text-paper/40 uppercase tracking-widest mb-3">{t('contact.label')}</p>
         <h2 className="font-sans font-bold text-3xl md:text-4xl tracking-tight uppercase mb-12">
-          Let&apos;s Work Together
+          {t('contact.heading')}
         </h2>
 
         {status === 'success' ? (
           <div className="text-center py-16">
-            <p className="font-sans text-2xl font-bold mb-2">Message Sent</p>
-            <p className="font-mono text-sm text-paper/60">I&apos;ll get back to you shortly.</p>
+            <p className="font-sans text-2xl font-bold mb-2">{t('contact.successTitle')}</p>
+            <p className="font-mono text-sm text-paper/60">{t('contact.successDesc')}</p>
             <button
               onClick={() => setStatus('idle')}
               className="mt-8 font-mono text-sm text-signal-red hover:underline"
             >
-              Send another message
+              {t('contact.sendAnother')}
             </button>
           </div>
         ) : (
@@ -60,7 +56,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block font-mono text-xs text-paper/40 uppercase mb-2">
-                  Name
+                  {t('contact.nameLabel')}
                 </label>
                 <input
                   type="text"
@@ -70,12 +66,12 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full bg-transparent border-b border-white/20 focus:border-signal-red py-3 font-sans text-white outline-none transition-colors placeholder:text-white/20"
-                  placeholder="Your name"
+                  placeholder={t('contact.namePlaceholder')}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block font-mono text-xs text-paper/40 uppercase mb-2">
-                  Email
+                  {t('contact.emailLabel')}
                 </label>
                 <input
                   type="email"
@@ -85,13 +81,13 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full bg-transparent border-b border-white/20 focus:border-signal-red py-3 font-sans text-white outline-none transition-colors placeholder:text-white/20"
-                  placeholder="your@email.com"
+                  placeholder={t('contact.emailPlaceholder')}
                 />
               </div>
             </div>
             <div>
               <label htmlFor="message" className="block font-mono text-xs text-paper/40 uppercase mb-2">
-                Message
+                {t('contact.messageLabel')}
               </label>
               <textarea
                 id="message"
@@ -101,12 +97,12 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full bg-transparent border-b border-white/20 focus:border-signal-red py-3 font-sans text-white outline-none transition-colors resize-none placeholder:text-white/20"
-                placeholder="Tell me about your project..."
+                placeholder={t('contact.messagePlaceholder')}
               />
             </div>
 
             {status === 'error' && (
-              <p className="font-mono text-sm text-signal-red">Something went wrong. Please try again.</p>
+              <p className="font-mono text-sm text-signal-red">{t('contact.error')}</p>
             )}
 
             <button
@@ -115,11 +111,11 @@ export default function ContactForm() {
               className="relative overflow-hidden group bg-signal-red text-white px-8 py-3 rounded-full font-sans font-semibold text-sm transition-transform disabled:opacity-50"
             >
               <span className="relative z-10">
-                {status === 'sending' ? 'Sending...' : 'Send Message'}
+                {status === 'sending' ? t('contact.sending') : t('contact.send')}
               </span>
               <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></span>
               <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out opacity-0 group-hover:opacity-100 z-10 flex items-center justify-center text-black font-semibold text-sm">
-                Send Message
+                {t('contact.send')}
               </span>
             </button>
           </form>

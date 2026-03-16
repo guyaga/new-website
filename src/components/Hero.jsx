@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useLanguage, createT } from '../i18n';
 
 export default function Hero() {
     const containerRef = useRef(null);
+    const { lang } = useLanguage();
+    const t = createT(lang);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -34,18 +37,18 @@ export default function Hero() {
             {/* Content Bottom Left Third */}
             <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pb-24 md:pb-32 flex flex-col items-start w-full md:w-2/3">
                 <p className="hero-part font-mono text-xs md:text-sm tracking-[0.25em] uppercase text-paper/60 mb-6">
-                    Digital Strategist · AI Educator · Product Creator
+                    {t('hero.subtitle')}
                 </p>
                 <h1 className="flex flex-col uppercase">
                     <span className="hero-part font-sans font-bold text-4xl md:text-6xl lg:text-7xl tracking-tighter text-paper mb-2">
-                        Transform the
+                        {t('hero.line1')}
                     </span>
                     <span className="hero-part font-serif italic text-6xl md:text-8xl lg:text-[11rem] leading-none tracking-tight text-white mb-4">
-                        Reality.
+                        {t('hero.line2')}
                     </span>
                 </h1>
                 <p className="hero-part font-sans text-sm md:text-base text-signal-red font-bold tracking-wide mb-8">
-                    10+ Years Shaping Digital Products
+                    {t('hero.experience')}
                 </p>
                 <div className="hero-part">
                     <a
@@ -53,7 +56,7 @@ export default function Hero() {
                         className="group relative overflow-hidden bg-signal-red text-white px-8 py-4 rounded-full font-sans font-bold text-lg tracking-wide transition-transform hover:scale-[1.03] inline-block"
                         style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                     >
-                        <span className="relative z-10">Get in Touch</span>
+                        <span className="relative z-10">{t('hero.cta')}</span>
                         <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></span>
                     </a>
                 </div>

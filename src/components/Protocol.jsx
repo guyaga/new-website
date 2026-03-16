@@ -1,41 +1,41 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage, createT } from '../i18n';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const steps = [
-    {
-        num: '01',
-        title: 'Web Design & Development',
-        desc: 'Crafting fast, responsive, and visually stunning websites that convert visitors into customers.',
-        AnimComponent: AnalyzingPulse
-    },
-    {
-        num: '02',
-        title: 'Digital Architecture',
-        desc: 'Designing robust and flexible systems that support long-term growth and technical stability.',
-        AnimComponent: LaserScanner
-    },
-    {
-        num: '03',
-        title: 'AI Strategy & Implementation',
-        desc: 'Helping businesses leverage the power of AI to optimize workflows and enhance decision-making.',
-        AnimComponent: EKGWave
-    }
-];
 
 export default function Protocol() {
     const containerRef = useRef(null);
     const cardsRef = useRef([]);
+    const { lang } = useLanguage();
+    const t = createT(lang);
+
+    const steps = [
+        {
+            num: '01',
+            title: t('protocol.step1.title'),
+            desc: t('protocol.step1.desc'),
+            AnimComponent: AnalyzingPulse
+        },
+        {
+            num: '02',
+            title: t('protocol.step2.title'),
+            desc: t('protocol.step2.desc'),
+            AnimComponent: LaserScanner
+        },
+        {
+            num: '03',
+            title: t('protocol.step3.title'),
+            desc: t('protocol.step3.desc'),
+            AnimComponent: EKGWave
+        }
+    ];
 
     useEffect(() => {
-        // We pin the container and animate the cards
-        // A standard stacking card effect with GSAP
-
         let ctx = gsap.context(() => {
             cardsRef.current.forEach((card, index) => {
-                if (index === 0) return; // Skip the first one
+                if (index === 0) return;
 
                 const prevCard = cardsRef.current[index - 1];
 
@@ -83,7 +83,7 @@ export default function Protocol() {
                     </div>
                 </div>
             ))}
-            <div className="h-[20vh]"></div> {/* Spacing at the bottom so the last card scrolls up normally */}
+            <div className="h-[20vh]"></div>
         </section>
     );
 }

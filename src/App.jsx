@@ -11,6 +11,16 @@ import HomePage from './pages/HomePage';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import PortfolioDetail from './pages/PortfolioDetail';
+import Webinar from './pages/Webinar';
+import ProtectedRoute from './components/ProtectedRoute';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminLayout from './pages/admin/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import BlogListAdmin from './pages/admin/BlogListAdmin';
+import BlogEditor from './pages/admin/BlogEditor';
+import PortfolioListAdmin from './pages/admin/PortfolioListAdmin';
+import PortfolioEditor from './pages/admin/PortfolioEditor';
+import LeadsAdmin from './pages/admin/LeadsAdmin';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +41,7 @@ function ScrollToHash() {
   return null;
 }
 
-function App() {
+function PublicLayout() {
   const [booted, setBooted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
   const location = useLocation();
@@ -56,6 +66,7 @@ function App() {
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+        <Route path="/webinar" element={<Webinar />} />
       </Routes>
       <Footer />
     </div>
@@ -66,6 +77,38 @@ function App() {
   }
 
   return content;
+}
+
+function App() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="blog" element={<BlogListAdmin />} />
+          <Route path="blog/new" element={<BlogEditor />} />
+          <Route path="blog/:id" element={<BlogEditor />} />
+          <Route path="portfolio" element={<PortfolioListAdmin />} />
+          <Route path="portfolio/new" element={<PortfolioEditor />} />
+          <Route path="portfolio/:id" element={<PortfolioEditor />} />
+          <Route path="leads" element={<LeadsAdmin />} />
+        </Route>
+      </Routes>
+    );
+  }
+
+  return <PublicLayout />;
 }
 
 export default App;

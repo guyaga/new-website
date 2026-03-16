@@ -13,8 +13,8 @@ export default {
         black: '#111111',
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', 'sans-serif'],
-        serif: ['"DM Serif Display"', 'serif'],
+        sans: ['"Space Grotesk"', '"Heebo"', 'sans-serif'],
+        serif: ['"DM Serif Display"', '"Frank Ruhl Libre"', 'serif'],
         mono: ['"Space Mono"', 'monospace'],
       },
       borderRadius: {
