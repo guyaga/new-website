@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יום 4 — קול ואודיו עם AI | 10 ימים 10 סקילים</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>:root{--black:#111;--red:#E63B2E;--paper:#E8E4DD;--off-white:#F5F3EE;--w10:rgba(255,255,255,.1);--w30:rgba(255,255,255,.3);--w50:rgba(255,255,255,.5);--w70:rgba(255,255,255,.7)}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--black);color:var(--off-white);font-family:'Heebo','Space Grotesk',sans-serif;line-height:1.8;min-height:100vh}.container{max-width:800px;margin:0 auto;padding:0 24px}.hero{padding:80px 0 60px;border-bottom:1px solid var(--w10)}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}.hero h1{font-size:42px;font-weight:700;line-height:1.1;margin-bottom:8px}.hero .service{font-family:'Space Mono',monospace;font-size:13px;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}.hero .desc{font-size:17px;color:var(--w70);max-width:600px;line-height:1.8}.section{padding:48px 0;border-bottom:1px solid var(--w10)}.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}.section h2{font-size:26px;font-weight:700;margin-bottom:20px}.section p,.section li{font-size:15px;color:var(--w70);margin-bottom:12px}.section ul{padding-right:20px}.section li{margin-bottom:10px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}.feature-card{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px}.feature-card .title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--off-white);margin-bottom:4px}.feature-card .desc{font-size:13px;color:var(--w50);line-height:1.6}.code-block{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;direction:ltr;text-align:left}.code-block code{font-family:'Space Mono',monospace;font-size:13px;color:var(--paper);white-space:pre}.code-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);margin-bottom:8px;direction:ltr;text-align:left}.step{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}.step-num{flex-shrink:0;width:36px;height:36px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:14px;font-weight:700}.step-content h3{font-size:17px;font-weight:600;margin-bottom:4px;margin-top:0}.step-content p{font-size:15px;color:var(--w50);margin-bottom:4px}.tip-box{background:rgba(230,59,46,.08);border:1px solid rgba(230,59,46,.2);border-radius:12px;padding:16px 20px;margin:16px 0}.tip-box .tip-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px}.tip-box p{font-size:14px;color:var(--w70);margin:0}.info-box{background:rgba(232,228,221,.05);border:1px solid rgba(232,228,221,.15);border-radius:12px;padding:16px 20px;margin:16px 0}.info-box .info-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper);margin-bottom:6px}.info-box p{font-size:14px;color:var(--w70);margin:0}.usecase{background:rgba(255,255,255,.03);border:1px solid var(--w10);border-radius:12px;padding:24px;margin:16px 0}.usecase .usecase-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--red);letter-spacing:.1em;margin-bottom:8px}.usecase h3{font-size:18px;font-weight:600;margin-bottom:8px;margin-top:0}.usecase p{font-size:14px;color:var(--w50);margin-bottom:12px}.usecase .prompt{background:rgba(255,255,255,.05);border-radius:8px;padding:12px 16px;font-family:'Space Mono',monospace;font-size:12px;color:var(--paper);direction:ltr;text-align:left}.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}.info-card{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px}.info-card .label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);margin-bottom:6px}.info-card .value{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--off-white)}.pricing-table{width:100%;border-collapse:collapse;margin:16px 0}.pricing-table th,.pricing-table td{padding:12px 16px;text-align:right;border-bottom:1px solid var(--w10);font-size:14px}.pricing-table th{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30)}.pricing-table td{color:var(--w70)}.pricing-table .highlight{color:var(--red);font-weight:600}.footer{padding:40px 0;text-align:center}.footer a{color:var(--red);text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em}.footer p{font-family:'Space Mono',monospace;font-size:11px;color:var(--w30);margin-top:8px}a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-badge">Day 04</div>
+      <h1>קול ואודיו עם AI</h1>
+      <div class="service">ElevenLabs</div>
+      <p class="desc">בשיעור הזה נלמד ליצור קריינות מקצועית, מוזיקה ואפקטים קוליים ישירות מ-Claude Code. נשכפל את הקול שלנו, ניצור נרטיב לסרטונים, ונוסיף שכבת אודיו מקצועית לכל פרויקט.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מה זה בכלל?</div>
+      <h2>הכירו את ElevenLabs</h2>
+      <p>ElevenLabs הוא שירות AI שמייצר <strong>קול אנושי טבעי מטקסט</strong>. המודל V3 החדש שלהם כמעט בלתי ניתן להבחנה מדיבור אמיתי. אפשר גם לשכפל את הקול שלכם — ואז ה-AI ידבר בדיוק כמוכם.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">מודל V3 — הכי טבעי</div><div class="desc">הקול הכי טבעי שנוצר אי פעם על ידי AI. כמעט בלתי אפשרי להבדיל מדיבור אמיתי.</div></div>
+        <div class="feature-card"><div class="title">שכפול קול</div><div class="desc">הקליטו דקה של הקול שלכם — ה-AI ידבר כל מה שתכתבו בקול שלכם בדיוק.</div></div>
+        <div class="feature-card"><div class="title">32+ שפות</div><div class="desc">אותו קול, שפה אחרת. עברית, אנגלית, ספרדית — הכל עובד.</div></div>
+        <div class="feature-card"><div class="title">יצירת מוזיקה</div><div class="desc">צרו פסקול מותאם אישית — לו-פי, סינמטי, אלקטרוני, כל סגנון.</div></div>
+        <div class="feature-card"><div class="title">אפקטים קוליים</div><div class="desc">צרו צלילי התראה, מעברים, אפקטי סביבה — בתיאור טקסט.</div></div>
+        <div class="feature-card"><div class="title">שליטה ברגש</div><div class="desc">כוונו את הקול — דרמטי, רגוע, אנרגטי, מקצועי. הכל בהגדרות פשוטות.</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">כמה זה עולה?</div>
+      <h2>תמחור</h2>
+      <p>שירות זה דורש חשבון ב-ElevenLabs עם API Key נפרד (לא אותו מפתח מימים 1-2).</p>
+
+      <table class="pricing-table">
+        <thead><tr><th>תוכנית</th><th>מחיר</th><th>מה כלול</th></tr></thead>
+        <tbody>
+          <tr><td>Free</td><td class="highlight">חינם</td><td>~10,000 תווים/חודש (5-7 דקות דיבור)</td></tr>
+          <tr><td>Starter</td><td>$5/חודש</td><td>30,000 תווים + 3 שכפולי קול</td></tr>
+          <tr><td>Creator</td><td>$22/חודש</td><td>100,000 תווים + 10 שכפולים</td></tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <div class="info-label">ה-Free מספיק</div>
+        <p>10,000 תווים זה מספיק ל-5-7 דקות של דיבור. בהחלט מספיק ללמידה ולתרגול השיעור הזה.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">הגדרות</div>
+      <h2>איך להתחיל</h2>
+
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>צרו חשבון</h3><p>לכו ל-<a href="https://elevenlabs.io" target="_blank">elevenlabs.io</a> ולחצו Sign Up.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>צרו API Key</h3><p>לחצו על אייקון הפרופיל (למטה-שמאל) → Profile + API key → Create API Key.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>הגדירו את המפתח</h3><p>פתחו Terminal:</p></div></div>
+
+      <div class="code-block"><div class="code-label">Windows (PowerShell)</div><code>$env:ELEVEN_API_KEY="your-api-key-here"</code></div>
+      <div class="code-block"><div class="code-label">macOS / Linux</div><code>export ELEVEN_API_KEY=your-api-key-here</code></div>
+
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>התקנת הסקיל</h3><p>פתחו Claude Code והדביקו:</p></div></div>
+
+      <div class="code-block"><div class="code-label">Paste into Claude Code</div><code>Install the ai-voice-audio skill from https://github.com/guyaga/10d10s-day04-voice-audio and help me set up my ElevenLabs API key</code></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מה אפשר לעשות</div>
+      <h2>5 דברים שתוכלו ליצור</h2>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 01</div><h3>קריינות לסרטון</h3><p>צרו קריינות מקצועית לכל סרטון — הדרכה, פרסומת, קורס.</p><div class="prompt">Generate a voiceover saying "Welcome to our AI marketing platform. In this video, we'll show you how to transform your content strategy." Use a warm professional voice. Save to D:/Audio/narration.mp3</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 02</div><h3>שכפול הקול שלכם</h3><p>הקליטו דקה של הקול שלכם — ותנו ל-AI לדבר כל מה שתכתבו בקול שלכם.</p><div class="prompt">Clone my voice from D:/Audio/my-voice-sample.mp3 then use it to narrate: "Welcome to this week's episode. I'm Guy, and today we're talking about AI tools."</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 03</div><h3>מוזיקת רקע</h3><p>צרו פסקול מותאם אישית לכל פרויקט.</p><div class="prompt">Generate 30 seconds of calm lo-fi hip hop music with soft piano and light drums, perfect for a YouTube video background</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 04</div><h3>אפקטים קוליים</h3><p>צרו צלילים מותאמים לאפליקציה, סרטון או פרזנטציה.</p><div class="prompt">Generate a modern, clean notification chime sound for a tech app, 2 seconds long</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 05</div><h3>קריינות + וידאו (יום 3 + יום 4)</h3><p>צרו קריינות ושלבו אותה ישירות לתוך סרטון.</p><div class="prompt">Generate a voiceover for this script, then add it to D:/Videos/demo.mp4 as narration: "Introducing the future of content creation."</div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">שכפול קול</div>
+      <h2>טיפים לתוצאות הכי טובות</h2>
+
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>הקליטו 1-3 דקות</h3><p>מינימום 30 שניות, אבל ככל שתקליטו יותר — התוצאה טובה יותר.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>סביבה שקטה</h3><p>כבו מזגן, מאוורר, טלוויזיה. רעשי רקע הורסים את השכפול.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>דברו טבעי</h3><p>אל תקראו כמו רובוט. דברו כמו שאתם מדברים בשגרה.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>מיקרופון טוב</h3><p>טלפון בחדר שקט עובד. מיקרופון USB עדיף.</p></div></div>
+
+      <div class="tip-box">
+        <div class="tip-label">טיפ מקצועי</div>
+        <p>כשמשתמשים בקול משוכפל, העלו את הגדרת ה-similarity_boost ל-0.85 — ככה זה יישמע יותר כמוכם.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">פתרון בעיות</div>
+      <h2>משהו לא עובד?</h2>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"API key not found"</h3><p>ודאו שהגדרתם ELEVEN_API_KEY. שימו לב — זה מפתח אחר מ-GEMINI_API_KEY!</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>הקול נשמע רובוטי</h3><p>השתמשו במודל V3 (<code style="color:var(--paper)">eleven_v3</code>) והורידו stability ל-0.3-0.5.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>השכפול לא דומה לי</h3><p>הקליטו דגימה ארוכה יותר (2+ דקות) בסביבה שקטה יותר.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>נגמרו הקרדיטים</h3><p>ה-Free Tier מתאפס כל חודש. או שדרגו ל-Starter ($5/חודש).</p></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">קישורים</div>
+      <h2>משאבים נוספים</h2>
+      <ul>
+        <li><a href="https://elevenlabs.io" target="_blank">ElevenLabs — הרשמה</a></li>
+        <li><a href="https://elevenlabs.io/docs/api-reference" target="_blank">API Documentation</a></li>
+        <li><a href="https://elevenlabs.io/pricing" target="_blank">תמחור</a></li>
+        <li><a href="https://github.com/guyaga/10d10s-day04-voice-audio" target="_blank">GitHub Repository</a></li>
+        <li><a href="https://bestguy.ai/course/10-days-10-skills">דף הקורס — bestguy.ai</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <a href="https://bestguy.ai/course/10-days-10-skills">bestguy.ai — 10 ימים 10 סקילים</a>
+      <p>Guy Aga &copy; 2026</p>
+    </div>
+  </div>
+</body>
+</html>
