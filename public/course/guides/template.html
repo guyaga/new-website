@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day XX — Skill Name | 10 Days 10 Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #111111;
+      --red: #E63B2E;
+      --paper: #E8E4DD;
+      --off-white: #F5F3EE;
+      --white-10: rgba(255,255,255,0.1);
+      --white-30: rgba(255,255,255,0.3);
+      --white-50: rgba(255,255,255,0.5);
+      --white-70: rgba(255,255,255,0.7);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--black);
+      color: var(--off-white);
+      font-family: 'Heebo', 'Space Grotesk', sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--white-10);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red);
+      color: white;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', 'Heebo', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero .service {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero .desc {
+      font-size: 16px;
+      color: var(--white-70);
+      max-width: 600px;
+    }
+
+    /* Section */
+    .section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--white-10);
+    }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-family: 'Space Grotesk', 'Heebo', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .section p, .section li {
+      font-size: 15px;
+      color: var(--white-70);
+      margin-bottom: 12px;
+    }
+    .section ul { padding-right: 20px; }
+    .section li { margin-bottom: 8px; }
+
+    /* Code blocks */
+    .code-block {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--white-10);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+      direction: ltr;
+      text-align: left;
+    }
+    .code-block code {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--paper);
+      white-space: pre;
+    }
+    .code-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-30);
+      margin-bottom: 8px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* Info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .info-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--white-10);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .info-card .label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-30);
+      margin-bottom: 6px;
+    }
+    .info-card .value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--off-white);
+    }
+
+    /* Pricing table */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .pricing-table th, .pricing-table td {
+      padding: 12px 16px;
+      text-align: right;
+      border-bottom: 1px solid var(--white-10);
+      font-size: 14px;
+    }
+    .pricing-table th {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-30);
+    }
+    .pricing-table td { color: var(--white-70); }
+    .pricing-table .highlight { color: var(--red); font-weight: 600; }
+
+    /* Steps */
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--red);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .step-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: var(--white-50);
+    }
+
+    /* Warning/Tip boxes */
+    .tip-box {
+      background: rgba(230, 59, 46, 0.08);
+      border: 1px solid rgba(230, 59, 46, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .tip-box .tip-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .tip-box p { font-size: 14px; color: var(--white-70); margin: 0; }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer a {
+      color: var(--red);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+    .footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--white-30);
+      margin-top: 8px;
+    }
+
+    /* Links */
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Print / PDF friendly */
+    @media print {
+      body { background: white; color: var(--black); }
+      .section { border-color: #ddd; }
+      .code-block { background: #f5f5f5; border-color: #ddd; }
+      .code-block code { color: var(--black); }
+      .info-card { background: #f5f5f5; border-color: #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">Day XX</div>
+      <h1>Skill Name</h1>
+      <div class="service">Service / Tool Name</div>
+      <p class="desc">תיאור קצר של המיומנות — מה נלמד, למה זה חשוב, ואיך זה משתלב בתהליך העבודה עם Claude Code.</p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section">
+      <div class="section-label">סקירה כללית</div>
+      <h2>מה זה?</h2>
+      <p>הסבר מקיף על השירות/הכלי, מה הוא עושה, ולמי הוא מתאים.</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="label">קטגוריה</div>
+          <div class="value">Image Generation</div>
+        </div>
+        <div class="info-card">
+          <div class="label">רמת קושי</div>
+          <div class="value">מתחילים</div>
+        </div>
+        <div class="info-card">
+          <div class="label">זמן התקנה</div>
+          <div class="value">5 דקות</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="section">
+      <div class="section-label">תמחור</div>
+      <h2>כמה זה עולה?</h2>
+      <p>פירוט תוכניות ועלויות לשימוש בשירות.</p>
+
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>תוכנית</th>
+            <th>מחיר</th>
+            <th>מה כלול</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Free Tier</td>
+            <td class="highlight">חינם</td>
+            <td>X requests/month</td>
+          </tr>
+          <tr>
+            <td>Pro</td>
+            <td>$XX/month</td>
+            <td>Unlimited</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <div class="tip-label">טיפ</div>
+        <p>ה-Free Tier מספיק בהחלט לתרגול ולמידה. אין צורך לשלם כדי לעבור את השיעור.</p>
+      </div>
+    </div>
+
+    <!-- API KEY -->
+    <div class="section">
+      <div class="section-label">הגדרות</div>
+      <h2>איך להשיג API Key</h2>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>צרו חשבון</h3>
+          <p>היכנסו ל-<a href="#">service-url.com</a> ולחצו Sign Up.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>צרו API Key</h3>
+          <p>לכו ל-Settings → API Keys → Create New Key.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>שמרו את המפתח</h3>
+          <p>העתיקו את המפתח ושמרו אותו בקובץ .env:</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">Terminal</div>
+        <code># Add to your .env file
+SERVICE_API_KEY=your-api-key-here</code>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">חשוב</div>
+        <p>לעולם אל תשתפו את ה-API Key שלכם. אל תעלו אותו ל-GitHub. השתמשו תמיד ב-.env.</p>
+      </div>
+    </div>
+
+    <!-- INSTALLATION -->
+    <div class="section">
+      <div class="section-label">התקנה</div>
+      <h2>איך להתקין</h2>
+
+      <p>הוראות התקנה מפורטות עבור Claude Code ועבור שימוש ידני.</p>
+
+      <h3 style="margin: 20px 0 8px; font-size: 16px;">Claude Code (Skill)</h3>
+      <div class="code-block">
+        <div class="code-label">Terminal</div>
+        <code># Install the skill
+claude skill install skill-name
+
+# Or add manually to your skills folder
+cd ~/.claude/skills/
+git clone https://github.com/guyaga/10d10s-dayXX-skill-name</code>
+      </div>
+
+      <h3 style="margin: 20px 0 8px; font-size: 16px;">דרישות מקדימות</h3>
+      <ul>
+        <li>Claude Code Pro / Max subscription</li>
+        <li>Node.js 20+</li>
+        <li>API Key from service (see above)</li>
+      </ul>
+    </div>
+
+    <!-- SAMPLE USES -->
+    <div class="section">
+      <div class="section-label">דוגמאות שימוש</div>
+      <h2>5 דברים שאפשר לעשות</h2>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Use Case Title</h3>
+          <p>תיאור קצר של מה אפשר לעשות ואיך.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">Prompt Example</div>
+        <code>Example prompt or code for this use case</code>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Use Case Title</h3>
+          <p>תיאור קצר של מה אפשר לעשות ואיך.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Use Case Title</h3>
+          <p>תיאור קצר של מה אפשר לעשות ואיך.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Use Case Title</h3>
+          <p>תיאור קצר של מה אפשר לעשות ואיך.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Use Case Title</h3>
+          <p>תיאור קצר של מה אפשר לעשות ואיך.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TROUBLESHOOTING -->
+    <div class="section">
+      <div class="section-label">פתרון בעיות</div>
+      <h2>שאלות נפוצות ופתרונות</h2>
+
+      <div class="step">
+        <div class="step-num">?</div>
+        <div class="step-content">
+          <h3>Problem description</h3>
+          <p>Solution explanation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINKS -->
+    <div class="section">
+      <div class="section-label">קישורים</div>
+      <h2>משאבים נוספים</h2>
+      <ul>
+        <li><a href="#">Official Documentation</a></li>
+        <li><a href="#">GitHub Repository for this lesson</a></li>
+        <li><a href="https://bestguy.ai/course/10-days-10-skills">Course Page — bestguy.ai</a></li>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <a href="https://bestguy.ai/course/10-days-10-skills">bestguy.ai — 10 Days 10 Skills</a>
+      <p>Guy Aga &copy; 2026</p>
+    </div>
+
+  </div>
+</body>
+</html>
