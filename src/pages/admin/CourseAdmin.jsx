@@ -112,7 +112,7 @@ export default function CourseAdmin() {
         <div className="space-y-3">
           {sessions.map((session) => {
             const isExpanded = expandedId === session.id;
-            const hasContent = session.desc_en || session.github_url || session.pdf_url;
+            const hasContent = session.is_unlocked && (session.desc_en || session.github_url || session.pdf_url);
 
             return (
               <div
