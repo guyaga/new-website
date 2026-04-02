@@ -12,6 +12,9 @@ import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import PortfolioDetail from './pages/PortfolioDetail';
 import Webinar from './pages/Webinar';
+import ThoughtsPage from './pages/ThoughtsPage';
+import SeedancePage from './pages/SeedancePage';
+import SeedanceWebinar from './pages/SeedanceWebinar';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminLayout from './pages/admin/AdminLayout';
@@ -21,6 +24,10 @@ import BlogEditor from './pages/admin/BlogEditor';
 import PortfolioListAdmin from './pages/admin/PortfolioListAdmin';
 import PortfolioEditor from './pages/admin/PortfolioEditor';
 import LeadsAdmin from './pages/admin/LeadsAdmin';
+import CoursePage from './pages/CoursePage';
+import CourseHub from './pages/CourseHub';
+import CourseAdmin from './pages/admin/CourseAdmin';
+import CourseMembersAdmin from './pages/admin/CourseMembersAdmin';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +73,11 @@ function PublicLayout() {
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+        <Route path="/thoughts" element={<ThoughtsPage />} />
+        <Route path="/seedance" element={<SeedancePage />} />
+        <Route path="/seedance-webinar" element={<SeedanceWebinar />} />
         <Route path="/webinar" element={<Webinar />} />
+        <Route path="/course/10-days-10-skills" element={<CoursePage />} />
       </Routes>
       <Footer />
     </div>
@@ -82,6 +93,15 @@ function PublicLayout() {
 function App() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
+  const isCourseHub = location.pathname === '/course/hub';
+
+  if (isCourseHub) {
+    return (
+      <Routes>
+        <Route path="/course/hub" element={<CourseHub />} />
+      </Routes>
+    );
+  }
 
   if (isAdmin) {
     return (
@@ -103,6 +123,8 @@ function App() {
           <Route path="portfolio/new" element={<PortfolioEditor />} />
           <Route path="portfolio/:id" element={<PortfolioEditor />} />
           <Route path="leads" element={<LeadsAdmin />} />
+          <Route path="course" element={<CourseAdmin />} />
+          <Route path="course/members" element={<CourseMembersAdmin />} />
         </Route>
       </Routes>
     );

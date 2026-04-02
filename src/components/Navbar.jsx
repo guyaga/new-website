@@ -79,7 +79,9 @@ export default function Navbar() {
         { label: t('nav.about'), hash: '#about' },
         { label: t('nav.services'), hash: '#services' },
         { label: t('nav.portfolio'), hash: '#portfolio' },
+        { label: t('nav.thoughts'), to: '/thoughts' },
         { label: t('nav.blog'), to: '/blog' },
+        { label: t('nav.course'), to: '/course/10-days-10-skills' },
     ];
 
     return (
