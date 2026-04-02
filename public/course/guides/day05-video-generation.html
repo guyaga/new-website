@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יום 5 — יצירת וידאו עם AI | 10 ימים 10 סקילים</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>:root{--black:#111;--red:#E63B2E;--paper:#E8E4DD;--off-white:#F5F3EE;--w10:rgba(255,255,255,.1);--w30:rgba(255,255,255,.3);--w50:rgba(255,255,255,.5);--w70:rgba(255,255,255,.7)}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--black);color:var(--off-white);font-family:'Heebo','Space Grotesk',sans-serif;line-height:1.8;min-height:100vh}.container{max-width:800px;margin:0 auto;padding:0 24px}.hero{padding:80px 0 60px;border-bottom:1px solid var(--w10)}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}.hero h1{font-size:42px;font-weight:700;line-height:1.1;margin-bottom:8px}.hero .service{font-family:'Space Mono',monospace;font-size:13px;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}.hero .desc{font-size:17px;color:var(--w70);max-width:600px;line-height:1.8}.section{padding:48px 0;border-bottom:1px solid var(--w10)}.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}.section h2{font-size:26px;font-weight:700;margin-bottom:20px}.section h3{font-size:18px;font-weight:600;margin:24px 0 8px}.section p,.section li{font-size:15px;color:var(--w70);margin-bottom:12px}.section ul{padding-right:20px}.section li{margin-bottom:10px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}.feature-card{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px}.feature-card .title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--off-white);margin-bottom:4px}.feature-card .desc{font-size:13px;color:var(--w50);line-height:1.6}.code-block{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;direction:ltr;text-align:left}.code-block code{font-family:'Space Mono',monospace;font-size:13px;color:var(--paper);white-space:pre}.code-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);margin-bottom:8px;direction:ltr;text-align:left}.step{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}.step-num{flex-shrink:0;width:36px;height:36px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:14px;font-weight:700}.step-content h3{font-size:17px;font-weight:600;margin-bottom:4px;margin-top:0}.step-content p{font-size:15px;color:var(--w50);margin-bottom:4px}.tip-box{background:rgba(230,59,46,.08);border:1px solid rgba(230,59,46,.2);border-radius:12px;padding:16px 20px;margin:16px 0}.tip-box .tip-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px}.tip-box p{font-size:14px;color:var(--w70);margin:0}.info-box{background:rgba(232,228,221,.05);border:1px solid rgba(232,228,221,.15);border-radius:12px;padding:16px 20px;margin:16px 0}.info-box .info-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper);margin-bottom:6px}.info-box p{font-size:14px;color:var(--w70);margin:0}.usecase{background:rgba(255,255,255,.03);border:1px solid var(--w10);border-radius:12px;padding:24px;margin:16px 0}.usecase .usecase-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--red);letter-spacing:.1em;margin-bottom:8px}.usecase h3{font-size:18px;font-weight:600;margin-bottom:8px;margin-top:0}.usecase p{font-size:14px;color:var(--w50);margin-bottom:12px}.usecase .prompt{background:rgba(255,255,255,.05);border-radius:8px;padding:12px 16px;font-family:'Space Mono',monospace;font-size:12px;color:var(--paper);direction:ltr;text-align:left}.pricing-table{width:100%;border-collapse:collapse;margin:16px 0}.pricing-table th,.pricing-table td{padding:12px 16px;text-align:right;border-bottom:1px solid var(--w10);font-size:14px}.pricing-table th{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30)}.pricing-table td{color:var(--w70)}.pricing-table .highlight{color:var(--red);font-weight:600}.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}.info-card{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px}.info-card .label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);margin-bottom:6px}.info-card .value{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--off-white)}.footer{padding:40px 0;text-align:center}.footer a{color:var(--red);text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em}.footer p{font-family:'Space Mono',monospace;font-size:11px;color:var(--w30);margin-top:8px}a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-badge">Day 05</div>
+      <h1>יצירת וידאו עם AI</h1>
+      <div class="service">fal.ai MCP</div>
+      <p class="desc">בשיעור הזה נלמד ליצור סרטוני AI מקצועיים ישירות מ-Claude Code — מטקסט או מתמונה, עם המודלים הטובים בעולם: Veo 3.1, Kling 3, Seedance ועוד. נכיר גם מה זה MCP ואיך הוא הופך את Claude לכלי חזק יותר.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מה זה MCP?</div>
+      <h2>תוספים ל-Claude Code</h2>
+      <p>MCP (Model Context Protocol) זה כמו <strong>תוסף (Plugin) ל-Claude Code</strong>. בדיוק כמו שתוספים לכרום מוסיפים יכולות לדפדפן, MCP מוסיף יכולות ל-Claude. במקרה הזה — גישה למאות מודלים של יצירת וידאו דרך fal.ai.</p>
+      <p>פקודה אחת להתקנה. ואז Claude יכול ליצור סרטונים.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">כמה זה עולה?</div>
+      <h2>תמחור</h2>
+
+      <div class="tip-box">
+        <div class="tip-label">חשוב לדעת</div>
+        <p>יצירת וידאו עם AI <strong>עולה כסף לכל שנייה</strong>. סרטון של 5 שניות יכול לעלות $0.35 עד $2. זה עדיין זול דרמטית בהשוואה לצילום מסורתי (צלם, שחקנים, עריכה), אבל חשוב להיות מודעים לעלויות.</p>
+      </div>
+
+      <table class="pricing-table">
+        <thead><tr><th>מודל</th><th>מחיר/שנייה</th><th>למה מתאים</th></tr></thead>
+        <tbody>
+          <tr><td>Veo 3.1</td><td class="highlight">$0.20-0.40</td><td>האיכות הכי גבוהה, המודל של גוגל</td></tr>
+          <tr><td>Kling 3 Pro</td><td>$0.11-0.20</td><td>קולנועי, עם אודיו מובנה</td></tr>
+          <tr><td>Kling 2.5 Turbo</td><td>~$0.07</td><td>יחס מצוין של מהירות/איכות</td></tr>
+          <tr><td>Veo 3.1 Lite</td><td>זול יותר</td><td>גרסה חסכונית של Veo</td></tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <div class="info-label">טיפ חיסכון</div>
+        <p>התחילו עם מודלים זולים (Kling 2.5, Veo Lite) לבדיקות. רנדרו סופי עם מודל פרימיום רק כשהפרומפט והתמונה מושלמים.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">הגדרות</div>
+      <h2>איך להתחיל</h2>
+
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>צרו חשבון ב-fal.ai</h3><p>לכו ל-<a href="https://fal.ai" target="_blank">fal.ai</a> והירשמו.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>צרו API Key</h3><p>לכו ל-<a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai/dashboard/keys</a> ולחצו Create Key.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>הוסיפו קרדיטים</h3><p>לכו ל-<a href="https://fal.ai/dashboard/usage-billing/credits" target="_blank">fal.ai/dashboard/usage-billing/credits</a> והוסיפו $5-10 להתחלה.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>התקנת fal MCP + סקיל</h3><p>פתחו Claude Code והדביקו:</p></div></div>
+
+      <div class="code-block"><div class="code-label">Paste into Claude Code</div><code>I need to set up AI video generation with fal.ai. Please:
+
+1. Install the fal.ai MCP server by running:
+   claude mcp add --transport http fal-ai https://mcp.fal.ai/mcp --header "Authorization: Bearer MY_FAL_KEY"
+   (Replace MY_FAL_KEY with my actual key)
+
+2. Install the skill from https://github.com/guyaga/10d10s-day05-video-generation
+
+3. Verify the MCP is connected.
+
+fal MCP docs: https://fal.ai/docs/documentation/setting-up/mcp
+My fal API key is: [PASTE YOUR KEY HERE]</code></div>
+
+      <div class="tip-box">
+        <div class="tip-label">אחרי ההתקנה</div>
+        <p>תצטרכו להפעיל מחדש את Claude Code כדי שה-MCP יטען. אחרי הריסטארט, Claude יוכל ליצור סרטונים.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מה אפשר לעשות</div>
+      <h2>4 תהליכי עבודה</h2>
+
+      <div class="usecase"><div class="usecase-num">WORKFLOW 01</div><h3>טקסט → וידאו</h3><p>תארו מה אתם רוצים לראות — ה-AI יוצר את הסרטון.</p><div class="prompt">Generate a 5-second video using Veo 3.1: "A slow aerial drone shot over a futuristic city at sunset, neon lights reflecting on glass buildings, cinematic"</div></div>
+
+      <div class="usecase"><div class="usecase-num">WORKFLOW 02</div><h3>תמונה → וידאו (התוצאות הכי טובות)</h3><p>צרו תמונה עם סקיל יום 1, ואז הנפישו אותה לסרטון.</p><div class="prompt">1. First, use nano-banano-pro to generate a still frame: "Professional woman presenting at tech conference, dramatic stage lighting"
+2. Then animate it with Kling 3: "She gestures confidently, camera slowly zooms in, subtle audience movement"</div></div>
+
+      <div class="usecase"><div class="usecase-num">WORKFLOW 03</div><h3>פריים ראשון + אחרון (שליטה מלאה)</h3><p>צרו תמונת פתיחה וסיום — ה-AI ייצור את התנועה ביניהן.</p><div class="prompt">1. Generate first frame: "A closed laptop on a desk, morning light"
+2. Generate last frame: "Same laptop now open with dashboard, coffee cup appeared"
+3. Use Veo 3.1 first-last-frame-to-video to generate the transition</div></div>
+
+      <div class="usecase"><div class="usecase-num">WORKFLOW 04</div><h3>צינור הפקה מלא (ימים 1-5)</h3><p>השתמשו בכל מה שלמדתם עד עכשיו ליצירת סרטון מלא.</p><div class="prompt">Let's create a complete product video:
+1. Generate a hero image (Day 1 - nano-banano-pro)
+2. Animate it into 5-second video (Day 5 - Kling 3)
+3. Check quality (Day 2 - ai-video-analyzer)
+4. Add subtitles and resize (Day 3 - ai-video-editor)
+5. Add voiceover (Day 4 - ai-voice-audio)</div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">לפני שמייצרים</div>
+      <h2>צ'קליסט — כדי לא לבזבז כסף</h2>
+      <p>עברו על הרשימה הזו <strong>לפני כל יצירת וידאו</strong>:</p>
+      <ul>
+        <li><strong>הפרומפט ספציפי?</strong> — תנועה, מצלמה, מצב רוח, אורך</li>
+        <li><strong>התמונה באיכות גבוהה?</strong> — מינימום 2K לתמונה-לוידאו</li>
+        <li><strong>המודל מתאים?</strong> — זול לבדיקות, פרימיום לסופי</li>
+        <li><strong>האורך סביר?</strong> — התחילו עם 4-5 שניות לבדיקה</li>
+        <li><strong>יש מספיק קרדיטים?</strong> — בדקו ב-<a href="https://fal.ai/dashboard/usage-billing/credits">fal.ai dashboard</a></li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tip-label">עצה חשובה</div>
+        <p>תהיו מעורבים בכל שלב — בדקו את איכות התמונה, את הפרומפט, את המודל שנבחר. כל דבר שמשפיע על התוצאה שווה בדיקה לפני היצירה. אל תסמכו על Claude באופן עיוור — זה הכסף שלכם.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">טיפים לפרומפטים</div>
+      <h2>איך לכתוב פרומפט טוב לוידאו</h2>
+
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>תארו תנועה</h3><p>"המצלמה נעה לאט שמאלה, רוח מנשבת בעצים, ציפורים עוברות ברקע"</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>ציינו מצלמה</h3><p>"צילום דרון אווירי", "קלוז-אפ מאקרו", "סגנון דוקומנטרי", "זום דולי חלק"</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>הגדירו אורך ומצב רוח</h3><p>"8 שניות, סינמטי, תאורה דרמטית" או "5 שניות, אנרגטי, סושיאל מדיה"</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>לתמונה-לוידאו: תארו מה משתנה</h3><p>אל תחזרו על מה שכבר נראה בתמונה. תארו רק את <strong>התנועה החדשה</strong>.</p></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">פתרון בעיות</div>
+      <h2>משהו לא עובד?</h2>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"MCP not connected"</h3><p>הפעילו מחדש את Claude Code אחרי הוספת ה-MCP.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"Authorization failed"</h3><p>בדקו שה-API Key נכון ב-<a href="https://fal.ai/dashboard/keys">fal.ai/dashboard/keys</a>.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"Insufficient credits"</h3><p>הוסיפו קרדיטים ב-<a href="https://fal.ai/dashboard/usage-billing/credits">fal.ai/dashboard/usage-billing/credits</a>.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>הסרטון לא נראה טוב</h3><p>בדקו את איכות תמונת הקלט ואת הפרומפט. נסו מודל אחר.</p></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">קישורים</div>
+      <h2>משאבים נוספים</h2>
+      <ul>
+        <li><a href="https://fal.ai" target="_blank">fal.ai — הרשמה</a></li>
+        <li><a href="https://fal.ai/dashboard/keys" target="_blank">API Keys</a></li>
+        <li><a href="https://fal.ai/dashboard/usage-billing/credits" target="_blank">הוספת קרדיטים</a></li>
+        <li><a href="https://fal.ai/docs/documentation/setting-up/mcp" target="_blank">fal MCP Documentation</a></li>
+        <li><a href="https://fal.ai/models?categories=video" target="_blank">כל מודלי הוידאו ב-fal</a></li>
+        <li><a href="https://github.com/guyaga/10d10s-day05-video-generation" target="_blank">GitHub Repository</a></li>
+        <li><a href="https://bestguy.ai/course/10-days-10-skills">דף הקורס — bestguy.ai</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <a href="https://bestguy.ai/course/10-days-10-skills">bestguy.ai — 10 ימים 10 סקילים</a>
+      <p>Guy Aga &copy; 2026</p>
+    </div>
+  </div>
+</body>
+</html>
