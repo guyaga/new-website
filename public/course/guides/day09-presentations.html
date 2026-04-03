@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יום 9 — מצגות AI | 10 ימים 10 סקילים</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>:root{--black:#111;--red:#E63B2E;--paper:#E8E4DD;--off-white:#F5F3EE;--w10:rgba(255,255,255,.1);--w30:rgba(255,255,255,.3);--w50:rgba(255,255,255,.5);--w70:rgba(255,255,255,.7)}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--black);color:var(--off-white);font-family:'Heebo','Space Grotesk',sans-serif;line-height:1.8;min-height:100vh}.container{max-width:800px;margin:0 auto;padding:0 24px}.hero{padding:80px 0 60px;border-bottom:1px solid var(--w10)}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}.hero h1{font-size:42px;font-weight:700;line-height:1.1;margin-bottom:8px}.hero .service{font-family:'Space Mono',monospace;font-size:13px;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}.hero .desc{font-size:17px;color:var(--w70);max-width:600px;line-height:1.8}.section{padding:48px 0;border-bottom:1px solid var(--w10)}.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}.section h2{font-size:26px;font-weight:700;margin-bottom:20px}.section h3{font-size:18px;font-weight:600;margin:24px 0 8px}.section p,.section li{font-size:15px;color:var(--w70);margin-bottom:12px}.section ul{padding-right:20px}.section li{margin-bottom:10px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}.feature-card{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px}.feature-card .title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--off-white);margin-bottom:4px}.feature-card .desc{font-size:13px;color:var(--w50);line-height:1.6}.code-block{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;direction:ltr;text-align:left}.code-block code{font-family:'Space Mono',monospace;font-size:13px;color:var(--paper);white-space:pre}.code-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);margin-bottom:8px;direction:ltr;text-align:left}.step{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}.step-num{flex-shrink:0;width:36px;height:36px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:14px;font-weight:700}.step-content h3{font-size:17px;font-weight:600;margin-bottom:4px;margin-top:0}.step-content p{font-size:15px;color:var(--w50);margin-bottom:4px}.tip-box{background:rgba(230,59,46,.08);border:1px solid rgba(230,59,46,.2);border-radius:12px;padding:16px 20px;margin:16px 0}.tip-box .tip-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px}.tip-box p{font-size:14px;color:var(--w70);margin:0}.info-box{background:rgba(232,228,221,.05);border:1px solid rgba(232,228,221,.15);border-radius:12px;padding:16px 20px;margin:16px 0}.info-box .info-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper);margin-bottom:6px}.info-box p{font-size:14px;color:var(--w70);margin:0}.usecase{background:rgba(255,255,255,.03);border:1px solid var(--w10);border-radius:12px;padding:24px;margin:16px 0}.usecase .usecase-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--red);letter-spacing:.1em;margin-bottom:8px}.usecase h3{font-size:18px;font-weight:600;margin-bottom:8px;margin-top:0}.usecase p{font-size:14px;color:var(--w50);margin-bottom:12px}.usecase .prompt{background:rgba(255,255,255,.05);border-radius:8px;padding:12px 16px;font-family:'Space Mono',monospace;font-size:12px;color:var(--paper);direction:ltr;text-align:left}.footer{padding:40px 0;text-align:center}.footer a{color:var(--red);text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em}.footer p{font-family:'Space Mono',monospace;font-size:11px;color:var(--w30);margin-top:8px}a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-badge">Day 09</div>
+      <h1>מצגות AI</h1>
+      <div class="service">python-pptx + Gemini 3 Pro</div>
+      <p class="desc">בשיעור הזה נלמד ליצור מצגות PowerPoint ברמה מקצועית ישירות מ-Claude Code — עם מבנה סיפורי, תמונות שנוצרו ב-AI, עיצוב ממותג, ו-19 סוגי שקפים שונים. תנו נושא — ותקבלו מצגת של 20+ שקפים.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">שתי דרכים</div>
+      <h2>איך זה עובד</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">מהיר — "תנו לי נושא"</div><div class="desc">"צרו מצגת של 20 שקפים על AI בשיווק" — Claude בוחר מסגרת סיפורית, מייצר תמונות, ובונה את כל השקפים.</div></div>
+        <div class="feature-card"><div class="title">מותאם — "אני רוצה שליטה"</div><div class="desc">הגדירו מותג, בחרו מסגרת סיפורית, ספקו קבצים עם נתונים, וכוונו כל שלב.</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">חומר מקור</div>
+      <h2>ספקו תוכן לתוצאות טובות יותר</h2>
+      <p>Claude מצוין במבנה ועיצוב, אבל <strong>הידע שלכם הופך את התוכן למדויק</strong>.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">מצגת קיימת</div><div class="desc">Claude יקרא וישפר/יעצב מחדש את המצגת הקיימת שלכם.</div></div>
+        <div class="feature-card"><div class="title">מסמכים ודוחות</div><div class="desc">PDF, CSV, טקסט — נתונים אמיתיים, מספרים, ציטוטים לשילוב.</div></div>
+        <div class="feature-card"><div class="title">פרופיל מותג (יום 6)</div><div class="desc">צבעים, פונטים, לוגו, טון — עקביות מותגית מיידית.</div></div>
+        <div class="feature-card"><div class="title">נתונים ספציפיים</div><div class="desc">הכנסות, מדדים, מחקר — AI לא ממציא נתונים אמיתיים, אתם צריכים לספק אותם.</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">חשוב</div>
+        <p>אם המצגת צריכה <strong>נתונים אמיתיים</strong> (הכנסות, מדדים, מחקר) — ספקו אותם. מספרים שנוצרו ב-AI הם בדויים. הנתונים שלכם = מצגת מדויקת.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מה כלול</div>
+      <h2>מה מקבלים בסקיל הזה</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">19 סוגי שקפים</div><div class="desc">Cover, Stats, Timeline, Split, Flow, Quote, Code, CTA, Checklist ועוד — כל שקף שונה מהקודם.</div></div>
+        <div class="feature-card"><div class="title">3 מסגרות סיפוריות</div><div class="desc">"למה זה חשוב", "המסע", "למד והשראה" — המצגת מספרת סיפור, לא רק מציגה שקפים.</div></div>
+        <div class="feature-card"><div class="title">תמונות AI</div><div class="desc">Hero images ואינפוגרפיקות נוצרים עם Gemini (סקיל יום 1) בצבעי המותג שלכם.</div></div>
+        <div class="feature-card"><div class="title">כללי איכות</div><div class="desc">מילים אסורות, מקסימום 6 נקודות לשקף, פריסות א-סימטריות, מרחב לבן נדיב.</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">הגדרות</div>
+      <h2>איך להתחיל</h2>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>התקנת חבילות Python</h3><p></p></div></div>
+      <div class="code-block"><div class="code-label">Terminal</div><code>pip install python-pptx Pillow numpy</code></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>התקנת הסקיל</h3></div></div>
+      <div class="code-block"><div class="code-label">Paste into Claude Code</div><code>Install the pptx-ai-presentations skill from https://github.com/guyaga/10d10s-day09-presentations and help me set up everything needed to create branded PowerPoint presentations with AI-generated images.</code></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>הגדירו מותג (אופציונלי)</h3><p>אם עשיתם יום 6, השתמשו בפרופיל המותג: "Use my brand profile from ~/brand-profiles/mybrand/"</p></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מסגרות סיפוריות</div>
+      <h2>כל מצגת מספרת סיפור</h2>
+      <div class="usecase"><div class="usecase-num">FRAMEWORK 01</div><h3>"למה זה חשוב" (ברירת מחדל)</h3><p>Hook → בעיה → פתרון → הוכחה → יישום → פעולה → סיום. הכי טוב לעסקים וחינוך.</p></div>
+      <div class="usecase"><div class="usecase-num">FRAMEWORK 02</div><h3>"המסע"</h3><p>הקשר → התפתחות → גילוי → צלילה לעומק → השפעה → עתיד → סיום. מושלם להשקות מוצרים.</p></div>
+      <div class="usecase"><div class="usecase-num">FRAMEWORK 03</div><h3>"למד והשראה"</h3><p>תשומת לב → צורך → סיפוק → ויזואליזציה → פעולה → סיום. מצוין להדרכות ומוטיבציה.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מה אפשר לעשות</div>
+      <h2>4 דרכים להשתמש</h2>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 01</div><h3>רק נושא</h3><p>הכי פשוט — תנו נושא ו-Claude עושה הכל.</p><div class="prompt">Create a 20-slide presentation about "The Future of AI in Education"</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 02</div><h3>עם מותג</h3><p>הגדירו צבעים, פונטים ולוגו — המצגת תהיה ממותגת.</p><div class="prompt">Create a presentation about AI tools. My brand: colors #1a1a2e, #e94560, #f5f5f5, #d4d4d4. Logo at ~/mylogo.png. 20 slides for marketing managers.</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 03</div><h3>שיפור מצגת קיימת</h3><p>תנו מצגת ישנה — Claude ישפר את העיצוב, המבנה והסיפור.</p><div class="prompt">Redesign my current presentation at ~/Documents/old-deck.pptx. Use my brand profile from ~/brand-profiles/mybrand/. Keep the data but improve everything.</div></div>
+
+      <div class="usecase"><div class="usecase-num">USE CASE 04</div><h3>עם נתונים</h3><p>ספקו דוחות, CSV, PDF — Claude ישלב את הנתונים האמיתיים שלכם.</p><div class="prompt">Create a Q4 results presentation using data from ~/reports/q4-financials.pdf. Audience: board of directors. 25 slides. "Why This Matters" framework.</div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">קבצי תבנית</div>
+      <h2>מה כלול ב-Repo</h2>
+      <ul>
+        <li><strong>pptx_builder_template.py</strong> — בונה PPTX מלא עם 19 סוגי שקפים וכל פונקציות העזר</li>
+        <li><strong>generate_assets_template.mjs</strong> — תבנית ליצירת תמונות עם Gemini בצבעי המותג</li>
+        <li><strong>brand_compliance.py</strong> — מיפוי צבעים — מוודא שכל נכס ויזואלי ב-4 צבעי המותג בלבד</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">פתרון בעיות</div>
+      <h2>משהו לא עובד?</h2>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"python-pptx not found"</h3><p>הריצו: <code style="color:var(--paper)">pip install python-pptx Pillow numpy</code></p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>התמונות לא במותג</h3><p>ודאו שה-brand preamble כולל את 4 קודי ה-hex שלכם. הריצו brand_compliance.py.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>הקובץ לא נפתח</h3><p>ודאו שהקובץ נשמר כראוי. נסו לפתוח ב-LibreOffice או Google Slides.</p></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">קישורים</div>
+      <h2>משאבים נוספים</h2>
+      <ul>
+        <li><a href="https://python-pptx.readthedocs.io/" target="_blank">python-pptx Documentation</a></li>
+        <li><a href="https://github.com/guyaga/10d10s-day09-presentations" target="_blank">GitHub Repository</a></li>
+        <li><a href="https://bestguy.ai/course/10-days-10-skills">דף הקורס — bestguy.ai</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <a href="https://bestguy.ai/course/10-days-10-skills">bestguy.ai — 10 ימים 10 סקילים</a>
+      <p>Guy Aga &copy; 2026</p>
+    </div>
+  </div>
+</body>
+</html>
