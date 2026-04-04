@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יום 10 — בניית אתר נחיתה | 10 ימים 10 סקילים</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>:root{--black:#111;--red:#E63B2E;--paper:#E8E4DD;--off-white:#F5F3EE;--w10:rgba(255,255,255,.1);--w30:rgba(255,255,255,.3);--w50:rgba(255,255,255,.5);--w70:rgba(255,255,255,.7)}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--black);color:var(--off-white);font-family:'Heebo','Space Grotesk',sans-serif;line-height:1.8;min-height:100vh}.container{max-width:800px;margin:0 auto;padding:0 24px}.hero{padding:80px 0 60px;border-bottom:1px solid var(--w10)}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}.hero h1{font-size:42px;font-weight:700;line-height:1.1;margin-bottom:8px}.hero .service{font-family:'Space Mono',monospace;font-size:13px;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}.hero .desc{font-size:17px;color:var(--w70);max-width:600px;line-height:1.8}.section{padding:48px 0;border-bottom:1px solid var(--w10)}.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}.section h2{font-size:26px;font-weight:700;margin-bottom:20px}.section h3{font-size:18px;font-weight:600;margin:24px 0 8px}.section p,.section li{font-size:15px;color:var(--w70);margin-bottom:12px}.section ul{padding-right:20px}.section li{margin-bottom:10px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}.feature-card{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px}.feature-card .title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--off-white);margin-bottom:4px}.feature-card .desc{font-size:13px;color:var(--w50);line-height:1.6}.code-block{background:rgba(255,255,255,.05);border:1px solid var(--w10);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;direction:ltr;text-align:left}.code-block code{font-family:'Space Mono',monospace;font-size:13px;color:var(--paper);white-space:pre}.code-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);margin-bottom:8px;direction:ltr;text-align:left}.step{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}.step-num{flex-shrink:0;width:36px;height:36px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:14px;font-weight:700}.step-content h3{font-size:17px;font-weight:600;margin-bottom:4px;margin-top:0}.step-content p{font-size:15px;color:var(--w50);margin-bottom:4px}.tip-box{background:rgba(230,59,46,.08);border:1px solid rgba(230,59,46,.2);border-radius:12px;padding:16px 20px;margin:16px 0}.tip-box .tip-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px}.tip-box p{font-size:14px;color:var(--w70);margin:0}.usecase{background:rgba(255,255,255,.03);border:1px solid var(--w10);border-radius:12px;padding:24px;margin:16px 0}.usecase .usecase-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--red);letter-spacing:.1em;margin-bottom:8px}.usecase h3{font-size:18px;font-weight:600;margin-bottom:8px;margin-top:0}.usecase p{font-size:14px;color:var(--w50);margin-bottom:12px}.usecase .prompt{background:rgba(255,255,255,.05);border-radius:8px;padding:12px 16px;font-family:'Space Mono',monospace;font-size:12px;color:var(--paper);direction:ltr;text-align:left}.info-box{background:rgba(232,228,221,.05);border:1px solid rgba(232,228,221,.15);border-radius:12px;padding:16px 20px;margin:16px 0}.info-box .info-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper);margin-bottom:6px}.info-box p{font-size:14px;color:var(--w70);margin:0}.footer{padding:40px 0;text-align:center}.footer a{color:var(--red);text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em}.footer p{font-family:'Space Mono',monospace;font-size:11px;color:var(--w30);margin-top:8px}a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-badge">Day 10 &mdash; The Finale</div>
+      <h1>בניית אתר נחיתה ופרסום</h1>
+      <div class="service">React + Vite + Tailwind + GSAP + Netlify</div>
+      <p class="desc">השיעור האחרון והכי מרגש. בנו אתר נחיתה מקצועי עם אנימציות קולנועיות, עיצוב ממותג, תמונות AI, אופטימיזציה ל-SEO ול-AI, ופרסום לאינטרנט בפקודה אחת. כל מה שלמדתם בימים 1-9 מתחבר כאן.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">מילון מושגים</div>
+      <h2>מושגים שכדאי להכיר</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">Node.js</div><div class="desc">תוכנה שמריצה JavaScript על המחשב שלכם (לא רק בדפדפן). הבסיס לכל הפרויקט.</div></div>
+        <div class="feature-card"><div class="title">npm</div><div class="desc">מנהל חבילות. מתקין קוד שאחרים כתבו. מגיע עם Node.js.</div></div>
+        <div class="feature-card"><div class="title">Vite</div><div class="desc">הכלי שבונה את האתר שלכם. הופך קוד React לקבצים שדפדפן מבין.</div></div>
+        <div class="feature-card"><div class="title">React</div><div class="desc">ספרייה לבניית ממשקי משתמש. הדף שלכם בנוי מ"רכיבים" של React.</div></div>
+        <div class="feature-card"><div class="title">Tailwind CSS</div><div class="desc">דרך לעצב את הדף עם שמות מחלקות במקום לכתוב CSS בנפרד.</div></div>
+        <div class="feature-card"><div class="title">GSAP</div><div class="desc">ספריית אנימציות. מה שגורם לדברים לזוז בצורה חלקה וקולנועית.</div></div>
+        <div class="feature-card"><div class="title">Netlify</div><div class="desc">שירות אחסון חינמי. שם את האתר שלכם באינטרנט עם כתובת URL.</div></div>
+        <div class="feature-card"><div class="title">Deploy</div><div class="desc">העלאת האתר לאינטרנט. אחרי Deploy כל אחד יכול לגלוש באתר.</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">4 סגנונות</div>
+      <h2>בחרו סגנון עיצובי</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">A: Organic Tech</div><div class="desc">מעבדה ביולוגית + מגזין יוקרה. ירוק כהה, חום אדמה, קרם. מתאים לבריאות, ביוטק.</div></div>
+        <div class="feature-card"><div class="title">B: Midnight Luxe</div><div class="desc">מועדון פרטי + אטלייה של שענים. שחור, זהב, שנהב. מתאים לפיננסים, יוקרה.</div></div>
+        <div class="feature-card"><div class="title">C: Brutalist Signal</div><div class="desc">חדר בקרה עתידני. ביז', אדום, שחור. מתאים לטכנולוגיה, AI, ייעוץ.</div></div>
+        <div class="feature-card"><div class="title">D: Vapor Clinic</div><div class="desc">מעבדת גנום בטוקיו. שחור עמוק, סגול, לבן. מתאים ל-SaaS, קריפטו, חדשנות.</div></div>
+      </div>
+      <div class="info-box"><div class="info-label">מותג משלכם?</div><p>אם בניתם פרופיל מותג ביום 6, אפשר להשתמש בצבעים ובפונטים שלכם במקום preset מוכן.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">הגדרות</div>
+      <h2>איך להתחיל</h2>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>התקנת Node.js</h3><p>הורידו מ-<a href="https://nodejs.org" target="_blank">nodejs.org</a> (גרסת LTS). התקינו כמו כל תוכנה.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>התקנת Netlify CLI</h3><p>פתחו Terminal והריצו:</p></div></div>
+      <div class="code-block"><div class="code-label">Terminal</div><code>npm install -g netlify-cli
+netlify login</code></div>
+      <p style="color:var(--w50);font-size:14px;">זה פותח את הדפדפן להתחבר ל-Netlify. חשבון חינם מספיק.</p>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>התקנת הסקיל</h3></div></div>
+      <div class="code-block"><div class="code-label">Paste into Claude Code</div><code>Install the landing-page-builder skill from https://github.com/guyaga/10d10s-day10-landing-page and help me set up Node.js and Netlify CLI for building and deploying landing pages.</code></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">איך משתמשים</div>
+      <h2>3 דרכים לבנות</h2>
+
+      <div class="usecase"><div class="usecase-num">QUICK START</div><h3>רק תגידו מה אתם רוצים</h3><p>הכי פשוט. Claude בונה הכל.</p><div class="prompt">Build me a landing page for my AI consulting business.
+I want the Brutalist Signal style.
+My 3 offerings: AI Strategy, Team Training, Product Development.
+CTA: "Book a consultation".
+Deploy to Netlify.</div></div>
+
+      <div class="usecase"><div class="usecase-num">WITH BRAND</div><h3>עם מותג מיום 6</h3><p>אם יש לכם פרופיל מותג — שלבו אותו.</p><div class="prompt">Build a landing page using my brand profile from ~/brand-profiles/mybrand/. My 3 key services are: coaching, nutrition, online programs. CTA: "Start Free Trial". Deploy.</div></div>
+
+      <div class="usecase"><div class="usecase-num">FULL PIPELINE</div><h3>צינור מלא (ימים 1-10)</h3><p>השתמשו בכל מה שלמדתם.</p><div class="prompt">1. Generate hero image with Day 1 skill (Gemini)
+2. Build the page with Midnight Luxe preset
+3. Add AI-generated section images
+4. Optimize for SEO + create llms.txt
+5. Deploy to Netlify
+6. Create social media post (Day 7) to promote it</div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">פרסום</div>
+      <h2>איך מפרסמים באינטרנט</h2>
+      <p>אחרי ש-Claude בנה את האתר, שתי פקודות ואתם באוויר:</p>
+      <div class="code-block"><div class="code-label">Terminal</div><code>npm run build
+netlify deploy --prod --dir=dist</code></div>
+      <p style="color:var(--w50);font-size:14px;">בפעם הראשונה Netlify ישאל אם ליצור אתר חדש. תגידו כן ותבחרו שם.</p>
+      <p style="color:var(--w50);font-size:14px;">תקבלו כתובת כמו <strong>https://your-brand.netlify.app</strong> — שלחו אותה לכל אחד.</p>
+
+      <div class="tip-box">
+        <div class="tip-label">דומיין משלכם</div>
+        <p>אם יש לכם דומיין (כמו mybrand.com), הריצו <code style="color:var(--paper)">netlify domains:add mybrand.com</code> ועקבו אחרי ההוראות. Netlify מנחה אתכם בהגדרת ה-DNS.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">SEO + AI</div>
+      <h2>אופטימיזציה לגוגל ול-AI</h2>
+      <p>Claude מוסיף את כל האופטימיזציות אוטומטית:</p>
+      <ul>
+        <li><strong>תגי Meta</strong> — כותרת, תיאור, מילות מפתח לגוגל</li>
+        <li><strong>Open Graph</strong> — תצוגה מקדימה יפה כשמשתפים בסושיאל</li>
+        <li><strong>JSON-LD</strong> — מידע מובנה שגוגל מבין (סוג עסק, שירותים, מיקום)</li>
+        <li><strong>llms.txt</strong> — קובץ טקסט שמסביר ל-AI מה האתר עושה (ChatGPT, Perplexity, Claude)</li>
+        <li><strong>HTML סמנטי</strong> — תגי header, main, section, article, nav — מבנה ש-AI ומנועי חיפוש מבינים</li>
+        <li><strong>נגישות</strong> — alt text על תמונות, aria labels, skip-to-content</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">שילוב עם שיעורים קודמים</div>
+      <h2>הכל מתחבר</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="title">יום 1 — תמונות</div><div class="desc">צרו Hero ותמונות סקשנים ממותגות עם Gemini.</div></div>
+        <div class="feature-card"><div class="title">יום 5 — וידאו</div><div class="desc">הטמיעו וידאו מוצר שנוצר עם fal.ai.</div></div>
+        <div class="feature-card"><div class="title">יום 6 — מותג</div><div class="desc">משכו פרופיל מותג לעקביות מיידית.</div></div>
+        <div class="feature-card"><div class="title">יום 7 — סושיאל</div><div class="desc">צרו פוסט קידום לאתר שהשקתם.</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">פתרון בעיות</div>
+      <h2>משהו לא עובד?</h2>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"node not found"</h3><p>התקינו Node.js מ-<a href="https://nodejs.org">nodejs.org</a>. סגרו ופתחו את ה-Terminal אחרי ההתקנה.</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>"netlify not found"</h3><p>הריצו: <code style="color:var(--paper)">npm install -g netlify-cli</code></p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>Build נכשל</h3><p>בדרך כלל טעות בקוד. בקשו מ-Claude לתקן: "The build failed, fix it"</p></div></div>
+      <div class="step"><div class="step-num">?</div><div class="step-content"><h3>האתר לא נראה טוב במובייל</h3><p>בקשו מ-Claude: "Make it fully responsive for mobile (390px width)"</p></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">קישורים</div>
+      <h2>משאבים</h2>
+      <ul>
+        <li><a href="https://nodejs.org" target="_blank">Node.js &mdash; הורדה</a></li>
+        <li><a href="https://netlify.com" target="_blank">Netlify &mdash; הרשמה</a></li>
+        <li><a href="https://github.com/guyaga/10d10s-day10-landing-page" target="_blank">GitHub Repository</a></li>
+        <li><a href="https://bestguy.ai/course/10-days-10-skills">דף הקורס &mdash; bestguy.ai</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <a href="https://bestguy.ai/course/10-days-10-skills">bestguy.ai &mdash; 10 ימים 10 סקילים</a>
+      <p>Guy Aga &copy; 2026</p>
+    </div>
+  </div>
+</body>
+</html>
