@@ -56,25 +56,20 @@
       <div class="step"><div class="step-num">1</div><div class="step-content"><h3>צרו חשבון ב-fal.ai</h3><p>לכו ל-<a href="https://fal.ai" target="_blank">fal.ai</a> והירשמו.</p></div></div>
       <div class="step"><div class="step-num">2</div><div class="step-content"><h3>צרו API Key</h3><p>לכו ל-<a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai/dashboard/keys</a> ולחצו Create Key.</p></div></div>
       <div class="step"><div class="step-num">3</div><div class="step-content"><h3>הוסיפו קרדיטים</h3><p>לכו ל-<a href="https://fal.ai/dashboard/usage-billing/credits" target="_blank">fal.ai/dashboard/usage-billing/credits</a> והוסיפו $5-10 להתחלה.</p></div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>התקנת fal MCP + סקיל</h3><p>פתחו Claude Code והדביקו:</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>התקנת fal MCP (בטרמינל — לא בתוך Claude Code!)</h3><p><strong>סגרו את Claude Code קודם.</strong> פתחו טרמינל רגיל (PowerShell, Terminal) והריצו:</p></div></div>
 
-      <div class="code-block"><div class="code-label">Paste into Claude Code</div><code>I need to set up AI video generation with fal.ai. Please:
+      <div class="code-block"><div class="code-label">Run in Terminal (NOT inside Claude Code)</div><code>claude mcp add --transport http fal-ai https://mcp.fal.ai/mcp --header "Authorization: Bearer YOUR_FAL_KEY"</code></div>
 
-1. Install the fal.ai MCP server by running:
-   claude mcp add --transport http fal-ai https://mcp.fal.ai/mcp --header "Authorization: Bearer MY_FAL_KEY"
-   (Replace MY_FAL_KEY with my actual key)
-
-2. Install the skill from https://github.com/guyaga/10d10s-day05-video-generation
-
-3. Verify the MCP is connected.
-
-fal MCP docs: https://fal.ai/docs/documentation/setting-up/mcp
-My fal API key is: [PASTE YOUR KEY HERE]</code></div>
+      <p style="color:var(--w50);font-size:14px;">החליפו YOUR_FAL_KEY במפתח האמיתי שלכם משלב 2.</p>
 
       <div class="tip-box">
-        <div class="tip-label">אחרי ההתקנה</div>
-        <p>תצטרכו להפעיל מחדש את Claude Code כדי שה-MCP יטען. אחרי הריסטארט, Claude יוכל ליצור סרטונים.</p>
+        <div class="tip-label">למה בטרמינל ולא ב-Claude Code?</div>
+        <p>פקודת <code style="color:var(--paper)">claude mcp add</code> מגדירה את Claude Code עצמו — הוא לא יכול להגדיר את עצמו מבפנים. כמו התקנת תוסף לדפדפן — מתקינים מבחוץ.</p>
       </div>
+
+      <div class="step"><div class="step-num">5</div><div class="step-content"><h3>הפעילו מחדש + התקנת סקיל</h3><p>סגרו ופתחו מחדש את Claude Code (ה-MCP נטען בהפעלה). אחר כך הדביקו:</p></div></div>
+
+      <div class="code-block"><div class="code-label">Paste into Claude Code</div><code>Install the fal-ai-video-generation skill from https://github.com/guyaga/10d10s-day04-video-generation and verify the fal MCP is connected by searching for available video models.</code></div>
     </div>
 
     <div class="section">
