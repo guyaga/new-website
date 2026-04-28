@@ -12,6 +12,7 @@ const FAQ_KEYS = [
   { q: 'course.faq.q3', a: 'course.faq.a3' },
   { q: 'course.faq.q4', a: 'course.faq.a4' },
   { q: 'course.faq.q5', a: 'course.faq.a5' },
+  { q: 'course.faq.q6', a: 'course.faq.a6' },
 ];
 
 export default function CourseFAQ() {
