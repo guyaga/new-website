@@ -24,11 +24,11 @@ import BlogEditor from './pages/admin/BlogEditor';
 import PortfolioListAdmin from './pages/admin/PortfolioListAdmin';
 import PortfolioEditor from './pages/admin/PortfolioEditor';
 import LeadsAdmin from './pages/admin/LeadsAdmin';
-import CoursePagePreview from './pages/CoursePagePreview';
+import CoursePage from './pages/CoursePage';
 import CourseHub from './pages/CourseHub';
-import TheBigBomb from './pages/TheBigBomb';
 import CourseAdmin from './pages/admin/CourseAdmin';
 import CourseMembersAdmin from './pages/admin/CourseMembersAdmin';
+import TheBigBomb from './pages/TheBigBomb';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +78,7 @@ function PublicLayout() {
         <Route path="/seedance" element={<SeedancePage />} />
         <Route path="/seedance-webinar" element={<SeedanceWebinar />} />
         <Route path="/webinar" element={<Webinar />} />
+        <Route path="/course/10-days-10-skills" element={<CoursePage />} />
       </Routes>
       <Footer />
     </div>
@@ -94,9 +95,6 @@ function App() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
   const isCourseHub = location.pathname === '/course/hub';
-  const isCourseLanding =
-    location.pathname === '/course/10-days-10-skills' ||
-    location.pathname === '/course/preview';
   const isBigBomb = location.pathname === '/thebigbomb';
 
   if (isBigBomb) {
@@ -111,15 +109,6 @@ function App() {
     return (
       <Routes>
         <Route path="/course/hub" element={<CourseHub />} />
-      </Routes>
-    );
-  }
-
-  if (isCourseLanding) {
-    return (
-      <Routes>
-        <Route path="/course/10-days-10-skills" element={<CoursePagePreview />} />
-        <Route path="/course/preview" element={<CoursePagePreview />} />
       </Routes>
     );
   }

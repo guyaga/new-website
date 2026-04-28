@@ -225,19 +225,19 @@ const translations = {
   'portfolio.backToAll': { en: 'All Projects', he: 'כל הפרויקטים' },
 
   // ── Course: 10 Days 10 Skills ──
-  'course.meta.title': { en: '10 Days 10 Skills — Claude Code Course', he: '10 ימים 10 סקילים — קורס Claude Code' },
-  'course.meta.desc': { en: 'Master 10 essential AI skills in 10 days with hands-on 20-minute video lessons, GitHub repos, and PDF guides.', he: 'שלטו ב-10 סקילים AI חיוניות ב-10 ימים עם שיעורי וידאו מעשיים של 20 דקות, מאגרי GitHub ומדריכי PDF.' },
+  'course.meta.title': { en: '10 Days 10 Skills — Claude Code Course', he: '10 ימים 10 מיומנויות — קורס Claude Code' },
+  'course.meta.desc': { en: 'Master 10 essential AI skills in 10 days with hands-on 20-minute video lessons, GitHub repos, and PDF guides.', he: 'שלטו ב-10 מיומנויות AI חיוניות ב-10 ימים עם שיעורי וידאו מעשיים של 20 דקות, מאגרי GitHub ומדריכי PDF.' },
 
   // Hero
-  'course.hero.label': { en: '10 Days · 10 Skills · 10 Repos', he: '10 ימים · 10 סקילים · 10 מאגרים' },
-  'course.hero.title': { en: '10 Days\n10 Skills', he: '10 ימים\n10 סקילים' },
-  'course.hero.subtitle': { en: 'Master Claude Code — one skill per day, 20-30 minutes on average.', he: 'שלטו ב-Claude Code — סקיל אחד ביום, 20-30 דקות לשיעור בממוצע.' },
+  'course.hero.label': { en: '10 Days · 10 Skills · 10 Repos', he: '10 ימים · 10 מיומנויות · 10 מאגרים' },
+  'course.hero.title': { en: '10 Days\n10 Skills', he: '10 ימים\n10 מיומנויות' },
+  'course.hero.subtitle': { en: 'Master Claude Code — one skill per day, 20 minutes per lesson.', he: 'שלטו ב-Claude Code — מיומנות אחת ביום, 20 דקות לשיעור.' },
   'course.hero.cta': { en: 'Enroll Now', he: 'הרשמה עכשיו' },
 
   // Overview
   'course.overview.label': { en: 'Course Overview', he: 'סקירת הקורס' },
   'course.overview.heading': { en: 'What You Get', he: 'מה כולל הקורס' },
-  'course.overview.desc': { en: 'A focused, practical course that takes you from zero to building real AI-powered workflows. Each day introduces a new skill with a complete project, guided video, and everything you need to practice on your own.', he: 'קורס ממוקד ומעשי שלוקח אתכם מאפס לבניית תהליכי עבודה מונעי AI אמיתיים. כל יום מציג סקיל חדש עם פרויקט מלא, וידאו מודרך וכל מה שצריך לתרגל לבד.' },
+  'course.overview.desc': { en: 'A focused, practical course that takes you from zero to building real AI-powered workflows. Each day introduces a new skill with a complete project, guided video, and everything you need to practice on your own.', he: 'קורס ממוקד ומעשי שלוקח אתכם מאפס לבניית תהליכי עבודה מונעי AI אמיתיים. כל יום מציג מיומנות חדשה עם פרויקט מלא, וידאו מודרך וכל מה שצריך לתרגל לבד.' },
   'course.overview.stat1.label': { en: 'Video Lessons', he: 'שיעורי וידאו' },
   'course.overview.stat1.value': { en: '10', he: '10' },
   'course.overview.stat2.label': { en: 'Minutes Each', he: 'דקות כל שיעור' },
@@ -247,7 +247,7 @@ const translations = {
 
   // Skills Grid
   'course.skills.label': { en: 'The Curriculum', he: 'תוכנית הלימודים' },
-  'course.skills.heading': { en: '10 Skills, 10 Days', he: '10 סקילים, 10 ימים' },
+  'course.skills.heading': { en: '10 Skills, 10 Days', he: '10 מיומנויות, 10 ימים' },
   'course.skills.locked': { en: 'Coming Soon', he: 'בקרוב' },
   'course.skills.day': { en: 'Day', he: 'יום' },
   'course.skills.watchVideo': { en: 'Watch', he: 'צפייה' },
@@ -257,12 +257,12 @@ const translations = {
   // What You'll Learn
   'course.learn.label': { en: 'Learning Outcomes', he: 'תוצרי למידה' },
   'course.learn.heading': { en: "What You'll Learn", he: 'מה תלמדו' },
-  'course.learn.item1': { en: 'What Claude Code skills are and how to build your own', he: 'מה הם סקילים ב-Claude Code ואיך לבנות בעצמכם' },
-  'course.learn.item2': { en: 'Connect Claude to external AI services and MCPs', he: 'לחבר את Claude לשירותי AI חיצוניים ו-MCPs' },
-  'course.learn.item3': { en: 'Generate images, videos, voiceovers, and presentations with AI', he: 'ליצור תמונות, סרטונים, קריינות ומצגות עם AI' },
-  'course.learn.item4': { en: 'Build and deploy websites and landing pages', he: 'לבנות ולפרסם אתרים ודפי נחיתה' },
-  'course.learn.item5': { en: 'Publish to social media, WhatsApp, and automate workflows', he: 'לפרסם לסושיאל מדיה, וואטסאפ ולהפוך תהליכים לאוטומטיים' },
-  'course.learn.item6': { en: 'Scrape websites, build brand profiles, and analyze competitors', he: 'לסרוק אתרים, לבנות פרופילי מותג ולנתח מתחרים' },
+  'course.learn.item1': { en: 'Set up and configure Claude Code for any project', he: 'הגדרה ותצורה של Claude Code לכל פרויקט' },
+  'course.learn.item2': { en: 'Create and customize AI skills for repetitive workflows', he: 'יצירה והתאמה של מיומנויות AI לתהליכים חוזרים' },
+  'course.learn.item3': { en: 'Generate images, videos, and visual content with AI', he: 'יצירת תמונות, וידאו ותוכן ויזואלי עם AI' },
+  'course.learn.item4': { en: 'Build full websites from prompt to production', he: 'בניית אתרים מלאים מפרומפט עד פרודקשן' },
+  'course.learn.item5': { en: 'Automate social media and email workflows', he: 'אוטומציה של סושיאל מדיה ותהליכי אימייל' },
+  'course.learn.item6': { en: 'Connect databases, APIs, and deploy to the cloud', he: 'חיבור מסדי נתונים, APIs ופריסה לענן' },
 
   // Instructor
   'course.instructor.label': { en: 'Your Instructor', he: 'המרצה שלכם' },
@@ -276,29 +276,27 @@ const translations = {
   // Pricing
   'course.pricing.label': { en: 'Pricing', he: 'מחירים' },
   'course.pricing.heading': { en: 'Start Learning Today', he: 'התחילו ללמוד היום' },
-  'course.pricing.name': { en: '10 Days 10 Skills', he: '10 ימים 10 סקילים' },
-  'course.pricing.feature1': { en: '10 video lessons (20-30 min each)', he: '10 שיעורי וידאו (20-30 דק׳ בממוצע)' },
+  'course.pricing.name': { en: '10 Days 10 Skills', he: '10 ימים 10 מיומנויות' },
+  'course.pricing.feature1': { en: '10 video lessons (20 min each)', he: '10 שיעורי וידאו (20 דק׳ כל אחד)' },
   'course.pricing.feature2': { en: '10 GitHub repositories with code', he: '10 מאגרי GitHub עם קוד' },
   'course.pricing.feature3': { en: '10 PDF guides in Hebrew', he: '10 מדריכי PDF בעברית' },
   'course.pricing.feature4': { en: 'New session unlocked daily', he: 'שיעור חדש נפתח כל יום' },
-  'course.pricing.feature5': { en: '1 year access to all materials', he: 'גישה לשנה לכל החומרים' },
+  'course.pricing.feature5': { en: 'Lifetime access to all materials', he: 'גישה לצמיתות לכל החומרים' },
   'course.pricing.cta': { en: 'Enroll Now', he: 'הרשמה עכשיו' },
 
   // FAQ
   'course.faq.label': { en: 'FAQ', he: 'שאלות נפוצות' },
   'course.faq.heading': { en: 'Frequently Asked Questions', he: 'שאלות נפוצות' },
-  'course.faq.q1': { en: 'Do I need coding experience?', he: 'האם צריך ניסיון בתכנות?' },
-  'course.faq.a1': { en: 'No. Claude Code handles the code — you describe what you want in plain language. The course teaches you to direct AI, not to program.', he: 'לא. Claude Code מטפל בקוד — אתם מתארים מה אתם רוצים בשפה רגילה. הקורס מלמד אתכם לכוון AI, לא לתכנת.' },
-  'course.faq.q2': { en: 'What Claude subscription do I need?', he: 'איזה מנוי Claude צריך?' },
-  'course.faq.a2': { en: 'Max ($100/mo) is strongly recommended — the course consumes tokens and you\'ll hit limits fast on Pro. Pro ($20/mo) is possible but you\'ll need to manage usage carefully.', he: 'Max ($100/חודש) מומלץ בחום — הקורס צורך טוקנים ותגיעו למגבלות מהר עם Pro. Pro ($20/חודש) אפשרי אבל תצטרכו לנהל שימוש בזהירות.' },
-  'course.faq.q3': { en: 'How much do the external services cost?', he: 'כמה עולים השירותים החיצוניים?' },
-  'course.faq.a3': { en: 'About $50 total for the entire course. This covers image generation, video creation, voice synthesis, web scraping, social publishing, and more. Each service is pay-as-you-go — you only pay for what you actually use.', he: 'כ-$50 בסך הכל לכל הקורס. זה מכסה יצירת תמונות, יצירת וידאו, סינתזת קול, סריקת אתרים, פרסום לסושיאל ועוד. כל שירות הוא תשלום לפי שימוש — משלמים רק על מה שבאמת משתמשים.' },
+  'course.faq.q1': { en: 'Do I need prior coding experience?', he: 'האם צריך ניסיון קודם בתכנות?' },
+  'course.faq.a1': { en: 'No. The course starts from basics and builds up. Claude Code does the heavy lifting — you learn to direct it.', he: 'לא. הקורס מתחיל מהיסודות ומתקדם. Claude Code עושה את העבודה הכבדה — אתם לומדים לכוון אותו.' },
+  'course.faq.q2': { en: 'How long do I have access?', he: 'לכמה זמן יש לי גישה?' },
+  'course.faq.a2': { en: 'Lifetime. All videos, repos, and guides are yours forever.', he: 'לצמיתות. כל הסרטונים, המאגרים והמדריכים שלכם לתמיד.' },
+  'course.faq.q3': { en: 'What tools/subscriptions do I need?', he: 'אילו כלים/מנויים צריך?' },
+  'course.faq.a3': { en: 'A Claude Code subscription (Pro or Max) and a free GitHub account. Each lesson guide covers any additional API keys needed.', he: 'מנוי Claude Code (Pro או Max) וחשבון GitHub חינמי. מדריך כל שיעור מכסה מפתחות API נוספים הנדרשים.' },
   'course.faq.q4': { en: 'Is the course in Hebrew or English?', he: 'הקורס בעברית או באנגלית?' },
-  'course.faq.a4': { en: 'Videos are in Hebrew. Guides are bilingual. Code and GitHub repos are in English (industry standard). The course hub supports both languages.', he: 'הסרטונים בעברית. המדריכים דו-לשוניים. הקוד ומאגרי GitHub באנגלית (תקן בתעשייה). מרכז הקורס תומך בשתי השפות.' },
-  'course.faq.q5': { en: 'What will I be able to create after the course?', he: 'מה אוכל ליצור אחרי הקורס?' },
-  'course.faq.a5': { en: 'Professional images, AI videos, voiceovers, landing pages, presentations, social media content, WhatsApp automations, brand profiles, and more — all from Claude Code. The skills stay installed on your machine forever.', he: 'תמונות מקצועיות, סרטוני AI, קריינות, אתרי נחיתה, מצגות, תוכן לסושיאל, אוטומציות וואטסאפ, פרופילי מותג ועוד — הכל מ-Claude Code. הסקילים נשארים מותקנים על המחשב שלכם לתמיד.' },
-  'course.faq.q6': { en: 'How long do I have access?', he: 'לכמה זמן יש לי גישה?' },
-  'course.faq.a6': { en: 'One year access to the course hub, videos, and all materials. The skills and GitHub repos are yours to keep forever — they\'re installed on your machine.', he: 'שנה של גישה למרכז הקורס, סרטונים וכל החומרים. הסקילים ומאגרי GitHub שלכם לתמיד — הם מותקנים על המחשב שלכם.' },
+  'course.faq.a4': { en: 'Videos are in Hebrew. PDF guides are in Hebrew. The code and GitHub repos are in English (industry standard).', he: 'הסרטונים בעברית. מדריכי ה-PDF בעברית. הקוד ומאגרי GitHub באנגלית (תקן בתעשייה).' },
+  'course.faq.q5': { en: 'How are sessions released?', he: 'איך השיעורים נפתחים?' },
+  'course.faq.a5': { en: 'One new session is unlocked each day. You\'ll receive an email with links to the video, GitHub repo, and PDF guide.', he: 'שיעור חדש נפתח כל יום. תקבלו אימייל עם קישורים לסרטון, מאגר GitHub ומדריך PDF.' },
 };
 
 export function createT(lang) {
