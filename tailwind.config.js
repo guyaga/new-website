@@ -13,9 +13,9 @@ export default {
         black: '#111111',
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', '"Rubik"', 'sans-serif'],
+        sans: ['"Space Grotesk"', '"Heebo"', 'sans-serif'],
         serif: ['"DM Serif Display"', '"Frank Ruhl Libre"', 'serif'],
-        mono: ['"Space Mono"', '"Rubik"', 'monospace'],
+        mono: ['"Space Mono"', 'monospace'],
       },
       borderRadius: {
         '2rem': '2rem',

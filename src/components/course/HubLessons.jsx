@@ -10,6 +10,7 @@ export default function HubLessons({ sessions, memberName }) {
   const isHe = lang === 'he';
 
   const unlocked = sessions.filter((s) => s.is_unlocked);
+  const latestUnlocked = unlocked[unlocked.length - 1];
   const progress = unlocked.length;
 
   return (
@@ -31,6 +32,27 @@ export default function HubLessons({ sessions, memberName }) {
           </span>
         </div>
       </div>
+
+      {/* Continue Learning card */}
+      {latestUnlocked && (
+        <button
+          onClick={() => setExpandedDay(latestUnlocked.day === expandedDay ? null : latestUnlocked.day)}
+          className="w-full bg-signal-red/10 border border-signal-red/20 rounded-xl p-5 mb-6 text-start hover:border-signal-red/40 transition-colors"
+        >
+          <p className="font-mono text-[10px] text-signal-red uppercase tracking-widest mb-1">
+            {isHe ? 'המשך ללמוד' : 'Continue Learning'}
+          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="font-sans font-bold text-lg text-white">
+                {isHe ? `יום ${latestUnlocked.day}: ${latestUnlocked.name_he}` : `Day ${latestUnlocked.day}: ${latestUnlocked.name_en}`}
+              </span>
+              <span className="block font-mono text-xs text-white/30 mt-0.5">{latestUnlocked.service}</span>
+            </div>
+            <ChevronDown size={18} className="text-signal-red" />
+          </div>
+        </button>
+      )}
 
       {/* All lessons */}
       <div className="space-y-3">

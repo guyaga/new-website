@@ -27,53 +27,6 @@ function CopyBlock({ text, label, accent }) {
   );
 }
 
-function StructuredSteps({ steps, isHe }) {
-  return (
-    <div className="space-y-4">
-      {steps.map((step) => {
-        const title = isHe ? step.title_he : step.title_en;
-        const desc = isHe ? step.desc_he : step.desc_en;
-        const linkLabel = isHe ? step.link_label_he : step.link_label_en;
-        const copyLabel = isHe ? step.copy_label_he : step.copy_label_en;
-
-        return (
-          <div key={step.n} className="bg-white/[0.03] border border-white/10 rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-2">
-              <span className="shrink-0 w-7 h-7 rounded-full bg-signal-red text-white font-mono text-xs font-bold flex items-center justify-center mt-0.5">
-                {step.n}
-              </span>
-              <div className="flex-1 min-w-0">
-                <h4 className="font-sans font-semibold text-base text-white mb-1">{title}</h4>
-                <p className="font-sans text-sm text-white/50 leading-relaxed">{desc}</p>
-              </div>
-            </div>
-
-            {step.link && (
-              <div className="ms-10 mt-3">
-                <a
-                  href={step.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-signal-red/10 border border-signal-red/30 text-signal-red font-sans text-sm font-semibold hover:bg-signal-red/20 transition-colors"
-                >
-                  {linkLabel || step.link}
-                  <ExternalLink size={14} />
-                </a>
-              </div>
-            )}
-
-            {step.copy_text && (
-              <div className="ms-10">
-                <CopyBlock text={step.copy_text} label={copyLabel} accent />
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 export default function LessonExpanded({ session }) {
   const [showManual, setShowManual] = useState(false);
   const { lang } = useLanguage();
@@ -81,9 +34,8 @@ export default function LessonExpanded({ session }) {
 
   const desc = isHe ? session.desc_he : session.desc_en;
   const examples = session.examples || [];
-  const installSteps = session.install_steps || null;
 
-  // Build the easy prompt from install_prompt or github_url (used only when no install_steps)
+  // Build the easy prompt from install_prompt or github_url
   const easyPrompt = session.install_prompt
     ? session.install_prompt.split('\n')[0]
     : session.github_url
@@ -102,73 +54,48 @@ export default function LessonExpanded({ session }) {
         </div>
       )}
 
-      {/* Install section */}
-      {(session.install_prompt || session.github_url || installSteps) && (
+      {/* Install — two options */}
+      {(session.install_prompt || session.github_url) && (
         <div>
           <p className="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-3">
             {isHe ? 'התקנה' : 'Installation'}
           </p>
 
-          {installSteps && installSteps.length > 0 ? (
-            /* Structured multi-step install (e.g. Day 4 fal MCP) */
-            <>
-              <StructuredSteps steps={installSteps} isHe={isHe} />
+          {/* Option A: Easy — paste into Claude Code */}
+          <div className="bg-white/[0.03] border border-white/10 rounded-xl p-5 mb-3">
+            <div className="flex items-center gap-2 mb-2">
+              <Sparkles size={14} className="text-signal-red" />
+              <p className="font-sans text-sm font-semibold text-white">
+                {isHe ? 'הדרך הקלה — העתיקו ושלחו ל-Claude Code' : 'Easy Way — Copy & paste into Claude Code'}
+              </p>
+              <span className="font-mono text-[9px] bg-signal-red/20 text-signal-red px-2 py-0.5 rounded-full uppercase tracking-widest">
+                {isHe ? 'מומלץ' : 'Recommended'}
+              </span>
+            </div>
+            <p className="font-sans text-xs text-white/40 mb-2">
+              {isHe
+                ? 'פתחו Claude Code בתיקיית הפרויקט שלכם, העתיקו את הטקסט הבא ושלחו — Claude יטפל בכל השאר.'
+                : 'Open Claude Code in your project folder, paste this prompt and send — Claude handles the rest.'}
+            </p>
+            <CopyBlock
+              text={easyPrompt}
+              label={isHe ? 'העתיקו את זה ל-Claude Code' : 'Paste this into Claude Code'}
+              accent
+            />
+          </div>
 
-              {/* Power-user fallback: raw install_prompt */}
-              {session.install_prompt && (
-                <>
-                  <button
-                    onClick={() => setShowManual(!showManual)}
-                    className="mt-4 flex items-center gap-2 font-mono text-[10px] text-white/20 hover:text-white/40 transition-colors uppercase tracking-widest"
-                  >
-                    <Terminal size={12} />
-                    {isHe ? 'התקנה ידנית (מתקדמים)' : 'Manual Setup (Advanced)'}
-                    <span className={`transition-transform ${showManual ? 'rotate-180' : ''}`}>▾</span>
-                  </button>
-                  {showManual && (
-                    <CopyBlock text={session.install_prompt} label={isHe ? 'פקודות Terminal' : 'Terminal Commands'} />
-                  )}
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              {/* Standard single-prompt install (Days 1-3, 5-10) */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-xl p-5 mb-3">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles size={14} className="text-signal-red" />
-                  <p className="font-sans text-sm font-semibold text-white">
-                    {isHe ? 'הדרך הקלה — העתיקו ושלחו ל-Claude Code' : 'Easy Way — Copy & paste into Claude Code'}
-                  </p>
-                  <span className="font-mono text-[9px] bg-signal-red/20 text-signal-red px-2 py-0.5 rounded-full uppercase tracking-widest">
-                    {isHe ? 'מומלץ' : 'Recommended'}
-                  </span>
-                </div>
-                <p className="font-sans text-xs text-white/40 mb-2">
-                  {isHe
-                    ? 'פתחו Claude Code בתיקיית הפרויקט שלכם, העתיקו את הטקסט הבא ושלחו — Claude יטפל בכל השאר.'
-                    : 'Open Claude Code in your project folder, paste this prompt and send — Claude handles the rest.'}
-                </p>
-                <CopyBlock
-                  text={easyPrompt}
-                  label={isHe ? 'העתיקו את זה ל-Claude Code' : 'Paste this into Claude Code'}
-                  accent
-                />
-              </div>
+          {/* Option B: Manual */}
+          <button
+            onClick={() => setShowManual(!showManual)}
+            className="flex items-center gap-2 font-mono text-[10px] text-white/20 hover:text-white/40 transition-colors uppercase tracking-widest"
+          >
+            <Terminal size={12} />
+            {isHe ? 'התקנה ידנית (מתקדמים)' : 'Manual Setup (Advanced)'}
+            <span className={`transition-transform ${showManual ? 'rotate-180' : ''}`}>▾</span>
+          </button>
 
-              <button
-                onClick={() => setShowManual(!showManual)}
-                className="flex items-center gap-2 font-mono text-[10px] text-white/20 hover:text-white/40 transition-colors uppercase tracking-widest"
-              >
-                <Terminal size={12} />
-                {isHe ? 'התקנה ידנית (מתקדמים)' : 'Manual Setup (Advanced)'}
-                <span className={`transition-transform ${showManual ? 'rotate-180' : ''}`}>▾</span>
-              </button>
-
-              {showManual && session.install_prompt && (
-                <CopyBlock text={session.install_prompt} label={isHe ? 'פקודות Terminal' : 'Terminal Commands'} />
-              )}
-            </>
+          {showManual && session.install_prompt && (
+            <CopyBlock text={session.install_prompt} label={isHe ? 'פקודות Terminal' : 'Terminal Commands'} />
           )}
         </div>
       )}
