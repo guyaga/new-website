@@ -28,6 +28,7 @@ import CoursePage from './pages/CoursePage';
 import CourseHub from './pages/CourseHub';
 import CourseAdmin from './pages/admin/CourseAdmin';
 import CourseMembersAdmin from './pages/admin/CourseMembersAdmin';
+import TheBigBomb from './pages/TheBigBomb';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,6 +95,15 @@ function App() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
   const isCourseHub = location.pathname === '/course/hub';
+  const isBigBomb = location.pathname === '/thebigbomb';
+
+  if (isBigBomb) {
+    return (
+      <Routes>
+        <Route path="/thebigbomb" element={<TheBigBomb />} />
+      </Routes>
+    );
+  }
 
   if (isCourseHub) {
     return (
