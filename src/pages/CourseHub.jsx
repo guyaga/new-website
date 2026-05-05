@@ -7,8 +7,9 @@ import EmailGate from '../components/course/EmailGate';
 import HubLessons from '../components/course/HubLessons';
 import HubResources from '../components/course/HubResources';
 import HubAbout from '../components/course/HubAbout';
+import HubBonuses from '../components/course/HubBonuses';
 
-const TABS = ['lessons', 'resources', 'about'];
+const TABS = ['lessons', 'resources', 'about', 'bonuses'];
 
 export default function CourseHub() {
   const [member, setMember] = useState(null);
@@ -24,7 +25,11 @@ export default function CourseHub() {
     lessons: isHe ? 'שיעורים' : 'Lessons',
     resources: isHe ? 'משאבים' : 'Resources',
     about: isHe ? 'אודות' : 'About',
+    bonuses: isHe ? 'בונוסים' : 'Bonuses',
   };
+
+  const lessons = sessions.filter((s) => (s.category || 'lesson') === 'lesson');
+  const bonuses = sessions.filter((s) => s.category === 'bonus');
 
   // Check saved email on mount
   useEffect(() => {
@@ -149,13 +154,16 @@ export default function CourseHub() {
           ) : (
             <>
               {activeTab === 'lessons' && (
-                <HubLessons sessions={sessions} memberName={member.name} />
+                <HubLessons sessions={lessons} memberName={member.name} />
               )}
               {activeTab === 'resources' && (
-                <HubResources sessions={sessions} />
+                <HubResources sessions={lessons} />
               )}
               {activeTab === 'about' && (
                 <HubAbout />
+              )}
+              {activeTab === 'bonuses' && (
+                <HubBonuses sessions={bonuses} />
               )}
             </>
           )}

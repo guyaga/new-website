@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, FileText, FolderOpen, MessageSquare, GraduationCap, LogOut } from 'lucide-react';
+import { LayoutDashboard, FileText, FolderOpen, MessageSquare, GraduationCap, Quote, ClipboardList, LogOut } from 'lucide-react';
 import { useAuth } from '../../lib/AuthContext';
 import { supabase } from '../../lib/supabase';
 
@@ -10,6 +10,8 @@ const navItems = [
   { to: '/admin/portfolio', icon: FolderOpen, label: 'Portfolio' },
   { to: '/admin/leads', icon: MessageSquare, label: 'Leads' },
   { to: '/admin/course', icon: GraduationCap, label: 'Course' },
+  { to: '/admin/testimonials', icon: Quote, label: 'Testimonials' },
+  { to: '/admin/survey', icon: ClipboardList, label: 'Survey' },
 ];
 
 export default function AdminLayout() {

@@ -12,6 +12,9 @@ export default function SkillsGrid({ sessions }) {
   const t = createT(lang);
   const isHe = lang === 'he';
 
+  // Filter to only show day 1-10 (no intros)
+  const courseSessions = sessions.filter((s) => s.day >= 1 && s.day <= 10);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.skill-card', {
@@ -29,6 +32,11 @@ export default function SkillsGrid({ sessions }) {
   return (
     <section ref={containerRef} className="py-24 md:py-40 bg-black" dir={isHe ? 'rtl' : 'ltr'}>
       <div className="max-w-7xl mx-auto px-6">
+        {/* Skills banner image */}
+        <div className="mb-12 rounded-2xl overflow-hidden border border-white/[0.06]">
+          <img src="/course/landing-skills-banner.jpg" alt="10 Skills" className="w-full object-cover" loading="lazy" />
+        </div>
+
         <p className="font-mono text-xs text-signal-red uppercase tracking-widest mb-3">
           {t('course.skills.label')}
         </p>
@@ -37,7 +45,7 @@ export default function SkillsGrid({ sessions }) {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sessions.map((session) => (
+          {courseSessions.map((session) => (
             <SkillCard key={session.id} session={session} />
           ))}
         </div>

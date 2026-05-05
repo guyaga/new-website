@@ -24,11 +24,15 @@ import BlogEditor from './pages/admin/BlogEditor';
 import PortfolioListAdmin from './pages/admin/PortfolioListAdmin';
 import PortfolioEditor from './pages/admin/PortfolioEditor';
 import LeadsAdmin from './pages/admin/LeadsAdmin';
-import CoursePage from './pages/CoursePage';
+import CoursePagePreview from './pages/CoursePagePreview';
 import CourseHub from './pages/CourseHub';
+import TheBigBomb from './pages/TheBigBomb';
 import CourseAdmin from './pages/admin/CourseAdmin';
 import CourseMembersAdmin from './pages/admin/CourseMembersAdmin';
-import TheBigBomb from './pages/TheBigBomb';
+import CourseFeedback from './pages/CourseFeedback';
+import TestimonialsAdmin from './pages/admin/TestimonialsAdmin';
+import CourseSurvey from './pages/CourseSurvey';
+import SurveyAdmin from './pages/admin/SurveyAdmin';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,7 +82,6 @@ function PublicLayout() {
         <Route path="/seedance" element={<SeedancePage />} />
         <Route path="/seedance-webinar" element={<SeedanceWebinar />} />
         <Route path="/webinar" element={<Webinar />} />
-        <Route path="/course/10-days-10-skills" element={<CoursePage />} />
       </Routes>
       <Footer />
     </div>
@@ -95,6 +98,11 @@ function App() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
   const isCourseHub = location.pathname === '/course/hub';
+  const isCourseFeedback = location.pathname === '/course/10-days-10-skills/feedback';
+  const isCourseSurvey = location.pathname === '/course/10-days-10-skills/survey';
+  const isCourseLanding =
+    location.pathname === '/course/10-days-10-skills' ||
+    location.pathname === '/course/preview';
   const isBigBomb = location.pathname === '/thebigbomb';
 
   if (isBigBomb) {
@@ -109,6 +117,31 @@ function App() {
     return (
       <Routes>
         <Route path="/course/hub" element={<CourseHub />} />
+      </Routes>
+    );
+  }
+
+  if (isCourseFeedback) {
+    return (
+      <Routes>
+        <Route path="/course/10-days-10-skills/feedback" element={<CourseFeedback />} />
+      </Routes>
+    );
+  }
+
+  if (isCourseSurvey) {
+    return (
+      <Routes>
+        <Route path="/course/10-days-10-skills/survey" element={<CourseSurvey />} />
+      </Routes>
+    );
+  }
+
+  if (isCourseLanding) {
+    return (
+      <Routes>
+        <Route path="/course/10-days-10-skills" element={<CoursePagePreview />} />
+        <Route path="/course/preview" element={<CoursePagePreview />} />
       </Routes>
     );
   }
@@ -135,6 +168,8 @@ function App() {
           <Route path="leads" element={<LeadsAdmin />} />
           <Route path="course" element={<CourseAdmin />} />
           <Route path="course/members" element={<CourseMembersAdmin />} />
+          <Route path="testimonials" element={<TestimonialsAdmin />} />
+          <Route path="survey" element={<SurveyAdmin />} />
         </Route>
       </Routes>
     );
