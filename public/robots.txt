@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /course/10-days-10-skills/feedback
+Disallow: /course/10-days-10-skills/survey
 
 Sitemap: https://bestguy.ai/sitemap.xml

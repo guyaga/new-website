@@ -12,9 +12,6 @@ import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import PortfolioDetail from './pages/PortfolioDetail';
 import Webinar from './pages/Webinar';
-import ThoughtsPage from './pages/ThoughtsPage';
-import SeedancePage from './pages/SeedancePage';
-import SeedanceWebinar from './pages/SeedanceWebinar';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminLayout from './pages/admin/AdminLayout';
@@ -29,6 +26,10 @@ import CourseHub from './pages/CourseHub';
 import CourseAdmin from './pages/admin/CourseAdmin';
 import CourseMembersAdmin from './pages/admin/CourseMembersAdmin';
 import TheBigBomb from './pages/TheBigBomb';
+import CourseFeedback from './pages/CourseFeedback';
+import CourseSurvey from './pages/CourseSurvey';
+import TestimonialsAdmin from './pages/admin/TestimonialsAdmin';
+import SurveyAdmin from './pages/admin/SurveyAdmin';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,9 +75,6 @@ function PublicLayout() {
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
-        <Route path="/thoughts" element={<ThoughtsPage />} />
-        <Route path="/seedance" element={<SeedancePage />} />
-        <Route path="/seedance-webinar" element={<SeedanceWebinar />} />
         <Route path="/webinar" element={<Webinar />} />
         <Route path="/course/10-days-10-skills" element={<CoursePage />} />
       </Routes>
@@ -95,6 +93,8 @@ function App() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
   const isCourseHub = location.pathname === '/course/hub';
+  const isCourseFeedback = location.pathname === '/course/10-days-10-skills/feedback';
+  const isCourseSurvey = location.pathname === '/course/10-days-10-skills/survey';
   const isBigBomb = location.pathname === '/thebigbomb';
 
   if (isBigBomb) {
@@ -109,6 +109,22 @@ function App() {
     return (
       <Routes>
         <Route path="/course/hub" element={<CourseHub />} />
+      </Routes>
+    );
+  }
+
+  if (isCourseFeedback) {
+    return (
+      <Routes>
+        <Route path="/course/10-days-10-skills/feedback" element={<CourseFeedback />} />
+      </Routes>
+    );
+  }
+
+  if (isCourseSurvey) {
+    return (
+      <Routes>
+        <Route path="/course/10-days-10-skills/survey" element={<CourseSurvey />} />
       </Routes>
     );
   }
@@ -135,6 +151,8 @@ function App() {
           <Route path="leads" element={<LeadsAdmin />} />
           <Route path="course" element={<CourseAdmin />} />
           <Route path="course/members" element={<CourseMembersAdmin />} />
+          <Route path="testimonials" element={<TestimonialsAdmin />} />
+          <Route path="survey" element={<SurveyAdmin />} />
         </Route>
       </Routes>
     );
